@@ -1,0 +1,32 @@
+# Node modules
+node_modules
+
+# Next.js build output
+.next
+out
+
+# Static files
+public
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+
+# Coverage & testing
+coverage
+.vitest
+
+# Optional: config files (якщо не хочеш їх форматувати)
+*.config.js
+*.config.ts
+
+# Mac system files
+.DS_Store
