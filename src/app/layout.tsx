@@ -29,15 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(
-          "flex min-h-dvh flex-col antialiased",
-          bigShoulders.variable,
-          dmSans.variable,
-        )}
+        className={cn("antialiased", bigShoulders.variable, dmSans.variable)}
       >
-        <Header />
-        <Main>{children}</Main>
-        <Footer />
+        <div id="app" className="flex min-h-dvh flex-col">
+          <Header />
+          <Main>{children}</Main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
