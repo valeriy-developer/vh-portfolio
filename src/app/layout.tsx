@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Big_Shoulders_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utills";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Main from "@/components/layout/Main";
 
 const bigShoulders = Big_Shoulders_Display({
   variable: "--font-big-shoulders",
@@ -26,9 +29,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn("antialiased", bigShoulders.variable, dmSans.variable)}
+        className={cn(
+          "flex min-h-dvh flex-col antialiased",
+          bigShoulders.variable,
+          dmSans.variable,
+        )}
       >
-        {children}
+        <Header />
+        <Main>{children}</Main>
+        <Footer />
       </body>
     </html>
   );
