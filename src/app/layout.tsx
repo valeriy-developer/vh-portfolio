@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Big_Shoulders_Display, DM_Sans } from "next/font/google";
-import "./globals.css";
+import "../styles/globals.css";
 import { cn } from "@/lib/utills";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
