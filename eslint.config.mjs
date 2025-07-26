@@ -13,6 +13,9 @@ const eslintConfig = [
   ...compat.config({
     extends: ["next/core-web-vitals", "next/typescript", "prettier"],
     plugins: ["prettier"],
+    rules: {
+      "@next/next/no-img-element": "off",
+    },
   }),
 ];
 
