@@ -2,12 +2,12 @@
 
 import Container from "@/components/Container";
 
-const HomePage = () => {
+const AboutPage = () => {
   return (
     <Container>
-      <div>Main page</div>
+      <div>About page</div>
     </Container>
   );
 };
 
-export default HomePage;
+export default AboutPage;
