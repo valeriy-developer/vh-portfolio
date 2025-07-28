@@ -1,6 +1,6 @@
 import React from "react";
 
-import { cn } from "@/lib/utills";
+import { cn } from "@/lib/utils";
 
 interface iProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;

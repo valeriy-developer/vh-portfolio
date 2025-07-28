@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Big_Shoulders_Display, DM_Sans } from "next/font/google";
 import "../styles/globals.css";
-import { cn } from "@/lib/utills";
+import { cn } from "@/lib/utils";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Main from "@/components/layout/Main";
+import { Providers } from "@/providers";
 
 const bigShoulders = Big_Shoulders_Display({
   variable: "--font-big-shoulders",
@@ -27,15 +28,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn("antialiased", bigShoulders.variable, dmSans.variable)}
       >
-        <div id="app" className="flex min-h-dvh flex-col">
-          <Header />
-          <Main>{children}</Main>
-          <Footer />
-        </div>
+        <Providers>
+          <div id="app" className="flex min-h-dvh flex-col">
+            <Header />
+            <Main>{children}</Main>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );

@@ -96,8 +96,6 @@ body {
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent-foreground: oklch(0.205 0 0);
@@ -123,7 +121,7 @@ body {
 }
 
 .dark {
-  --accent: oklch(0.931 0.193 105.2);
+  --accent: oklch(92.449% 0.22072 122.755);
   --primary: oklch(0.191 0.005 286.1);
   --primary-50: oklch(0.191 0.005 286.1 / 0.5);
   --primary-30: oklch(0.191 0.005 286.1 / 0.3);
@@ -152,8 +150,6 @@ body {
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
   --accent-foreground: oklch(0.985 0 0);
@@ -181,6 +177,12 @@ body {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-primary text-accent;
+    @apply bg-primary text-primary-foreground;
+  }
+}
+
+@layer utilities {
+  .easing {
+    @apply transition duration-300 ease-in;
   }
 }
