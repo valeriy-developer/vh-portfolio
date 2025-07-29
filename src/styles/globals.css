@@ -183,6 +183,6 @@ body {
 
 @layer utilities {
   .easing {
-    @apply transition duration-300 ease-in;
+    @apply transition-all duration-300 ease-in;
   }
 }

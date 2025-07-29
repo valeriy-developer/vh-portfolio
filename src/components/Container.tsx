@@ -10,7 +10,7 @@ interface iProps extends React.HTMLAttributes<HTMLDivElement> {
 const Container = ({ children, className, ...props }: iProps) => {
   return (
     <div
-      className={cn("mx-auto w-full px-5 md:px-10 lg:px-[8.5rem]", className)}
+      className={cn("mx-auto w-full px-5 md:px-10 lg:px-34", className)}
       {...props}
     >
       {children}
