@@ -1,9 +1,30 @@
 "use client";
 
+import { navigation } from "@/data/navigation";
+import Link from "next/link";
 import React from "react";
 
-const Navigation = () => {
-  return <div>Navigation</div>;
+interface iProps {
+  handleDropdown: (val: boolean) => void;
+}
+
+const Navigation = ({ handleDropdown }: iProps) => {
+  return (
+    <nav>
+      <ul className="flex flex-col items-start gap-0.5">
+        {navigation.map(({ label, url }, idx) => (
+          <li key={idx} className="group" onClick={() => handleDropdown(false)}>
+            <Link
+              href={url}
+              className="font-big-shoulders group-hover:text-accent text-easing text-3xl font-bold uppercase"
+            >
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
 };
 
 export default Navigation;

@@ -19,14 +19,12 @@ const ThemeToggle = () => {
   };
 
   return (
-    <div>
-      <Switch
-        id="toggle-theme"
-        checked={isDarkMode}
-        onCheckedChange={handleToggle}
-        aria-label="Toggle theme"
-      />
-    </div>
+    <Switch
+      id="toggle-theme"
+      checked={isDarkMode}
+      onCheckedChange={handleToggle}
+      aria-label="Toggle theme"
+    />
   );
 };
 

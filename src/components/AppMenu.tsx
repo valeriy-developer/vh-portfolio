@@ -43,9 +43,9 @@ const AppMenu = () => {
         </button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className="w-56" align="start">
+      <DropdownMenuContent align="start" className="pl-1">
         <DropdownMenuGroup>
-          <Navigation />
+          <Navigation handleDropdown={setIsOpened} />
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

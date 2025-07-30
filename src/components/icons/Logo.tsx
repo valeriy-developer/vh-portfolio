@@ -8,7 +8,7 @@ type TProps = {
 };
 
 const DEFAULT_WIDTH = 50;
-const DEFAULT_HEIGHT = 50;
+const DEFAULT_HEIGHT = 40;
 
 const SecondLogo: React.FC<TProps> = ({
   size = DEFAULT_HEIGHT,
