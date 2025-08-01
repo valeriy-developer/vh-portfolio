@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Main from "@/components/layout/Main";
 import { Providers } from "@/providers";
+import { SmoothScroll } from "@/components/dynamic";
 
 const bigShoulders = Big_Shoulders_Display({
   variable: "--font-big-shoulders",
@@ -28,16 +29,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
         className={cn("antialiased", bigShoulders.variable, dmSans.variable)}
       >
         <Providers>
-          <div id="app" className="flex min-h-dvh flex-col">
-            <Header />
-            <Main>{children}</Main>
-            <Footer />
-          </div>
+          <SmoothScroll>
+            <div id="app" className="flex min-h-dvh flex-col">
+              <Header />
+              <Main>{children}</Main>
+              <Footer />
+            </div>
+          </SmoothScroll>
         </Providers>
       </body>
     </html>

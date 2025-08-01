@@ -1,7 +1,7 @@
 "use client";
 
+import { ThemeProvider } from "@/components/dynamic";
 import { ReactNode } from "react";
-import { ThemeProvider } from "./ThemeProvider";
 
 interface Props {
   children: ReactNode;
