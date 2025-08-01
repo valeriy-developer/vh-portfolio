@@ -5,7 +5,7 @@ import Sparkle from "@/components/icons/Sparkle";
 
 const HomePage = () => {
   return (
-    <Container className="pt-12.5 md:pt-20">
+    <Container className="pt-28 md:pt-36">
       <div className="col-center text-center">
         <p className="text-secondary-50 text-sm font-medium tracking-[0.08em] uppercase">
           Building interfaces since — Y:2020
