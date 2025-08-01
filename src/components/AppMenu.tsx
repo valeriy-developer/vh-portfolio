@@ -7,11 +7,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Navigation from "./Navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useHeader } from "@/providers/HeaderProvider";
 
 const AppMenu = () => {
   const [isOpened, setIsOpened] = useState(false);
+  const { isVisible } = useHeader();
+
+  useEffect(() => {
+    setIsOpened(false);
+  }, [isVisible]);
 
   return (
     <DropdownMenu open={isOpened} onOpenChange={setIsOpened}>

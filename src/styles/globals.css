@@ -64,6 +64,7 @@
 
 body {
   font-family: var(--font-dm-sans), system-ui, sans-serif;
+  transition: background-color 0.4s ease-in-out;
 }
 
 :root {
@@ -182,11 +183,48 @@ body {
 }
 
 @layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .col-center {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .abs-center {
+    @apply absolute top-1/2 left-1/2 -translate-1/2;
+  }
+
+  .abs-x-center {
+    @apply absolute left-1/2 -translate-x-1/2;
+  }
+
+  .abs-y-center {
+    @apply absolute top-1/2 -translate-y-1/2;
+  }
+
   .easing {
     @apply transition-all duration-300 ease-in;
   }
 
   .text-easing {
     @apply transition-all duration-400 ease-in-out;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--color-secondary-30);
+    border-radius: 100vh;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-accent);
   }
 }

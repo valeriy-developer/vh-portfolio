@@ -31,7 +31,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn("antialiased", bigShoulders.variable, dmSans.variable)}
+        className={cn(
+          "scrollbar antialiased",
+          bigShoulders.variable,
+          dmSans.variable,
+        )}
       >
         <Providers>
           <SmoothScroll>
