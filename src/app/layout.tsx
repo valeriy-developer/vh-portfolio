@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Main from "@/components/layout/Main";
-import { Providers } from "@/providers";
 import { SmoothScroll } from "@/components/dynamic";
+import Providers from "@/providers";
 
 const bigShoulders = Big_Shoulders_Display({
   variable: "--font-big-shoulders",

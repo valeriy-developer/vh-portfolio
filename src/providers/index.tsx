@@ -7,6 +7,8 @@ interface Props {
   children: ReactNode;
 }
 
-export function Providers({ children }: Props) {
+const Providers = ({ children }: Props) => {
   return <ThemeProvider>{children}</ThemeProvider>;
-}
+};
+
+export default Providers;
