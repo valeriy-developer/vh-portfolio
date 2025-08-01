@@ -1,16 +1,16 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 
-type TProps = {
+interface iProps {
   size?: number;
   color?: string;
   className?: string;
-};
+}
 
 const DEFAULT_WIDTH = 50;
 const DEFAULT_HEIGHT = 40;
 
-const SecondLogo: React.FC<TProps> = ({
+const Logo: React.FC<iProps> = ({
   size = DEFAULT_HEIGHT,
   color = "currentColor",
   className,
@@ -34,4 +34,4 @@ const SecondLogo: React.FC<TProps> = ({
   );
 };
 
-export default SecondLogo;
+export default Logo;

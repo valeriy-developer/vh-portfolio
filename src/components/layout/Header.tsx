@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="w-full py-3">
+    <header className="bg-primary sticky top-0 left-0 w-full py-3">
       <Container>
         <div className="flex items-center justify-between">
           <AppMenu />
