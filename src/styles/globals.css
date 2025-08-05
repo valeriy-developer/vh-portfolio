@@ -228,7 +228,11 @@ body {
     background-color: var(--color-accent);
   }
 
-  @keyframes idleFloat {
+  .vertical-slide {
+    animation: vertical-slide-animation ease 6s infinite;
+  }
+
+  @keyframes vertical-slide-animation {
     0% {
       transform: translate(-50%, -50%);
     }

@@ -12,36 +12,40 @@ const HomePage = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!isDesktop) return;
+    const container = containerRef.current;
+    const img = imgRef.current;
+
+    if (!container || !img) return;
+
+    const centeredTranslate = (img.style.transform = "translate(-50%, -50%)");
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current || !imgRef.current) return;
-
-      const rect = containerRef.current.getBoundingClientRect();
+      const rect = container.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
 
       const deltaX = e.clientX - centerX;
       const deltaY = e.clientY - centerY;
 
-      imgRef.current.style.transform = `translate(-50%, -50%) translate(${-deltaX / 20}px, ${-deltaY / 20}px) scale(0.95)`;
+      img.style.transform = `translate(-50%, -50%) translate(${-deltaX / 20}px, ${-deltaY / 20}px) scale(0.95)`;
     };
 
     const handleMouseLeave = () => {
-      if (!imgRef.current) return;
-
-      imgRef.current.style.transform = "translate(-50%, -50%)";
+      img.style.transform = centeredTranslate;
     };
 
-    const container = containerRef.current;
-    if (!container) return;
+    const handleResize = () => {
+      img.style.transform = centeredTranslate;
+    };
 
     container.addEventListener("mousemove", handleMouseMove);
     container.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       container.removeEventListener("mousemove", handleMouseMove);
       container.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("resize", handleResize);
     };
   }, [isDesktop]);
 
@@ -58,8 +62,8 @@ const HomePage = () => {
           <img
             ref={imgRef}
             className={cn(
-              "pointer-events-none absolute top-1/2 left-1/2 hidden rounded-full object-cover transition duration-100 ease-linear md:block md:h-42 md:w-28 lg:h-64 lg:w-40",
-              !isDesktop && "animate-[idleFloat_6s_ease-in-out_infinite]",
+              "ease pointer-events-none absolute top-1/2 left-1/2 hidden rounded-full object-cover transition duration-100 md:block md:h-42 md:w-28 lg:h-64 lg:w-40",
+              !isDesktop && "vertical-slide",
             )}
             src="/images/vh-photo.jpg"
             alt="VH Photo"
