@@ -1,10 +1,11 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Container from "@/components/Container";
 import Sparkle from "@/components/icons/Sparkle";
 import { useIsDesktop } from "@/hooks/useMediaQuery";
 import { cn } from "@/lib/utils";
-import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const HomePage = () => {
   const isDesktop = useIsDesktop();
@@ -12,41 +13,68 @@ const HomePage = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const container = containerRef.current;
+    if (!isDesktop) return;
+
     const img = imgRef.current;
+    const container = containerRef.current;
 
-    if (!container || !img) return;
+    if (!img || !container) return;
 
-    const centeredTranslate = (img.style.transform = "translate(-50%, -50%)");
+    const ctx = gsap.context(() => {
+      gsap.set(img, {
+        xPercent: -50,
+        yPercent: -50,
+        x: 0,
+        y: 0,
+        scale: 1,
+      });
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
+      let centerX = 0;
+      let centerY = 0;
 
-      const deltaX = e.clientX - centerX;
-      const deltaY = e.clientY - centerY;
+      const updateCenter = () => {
+        const rect = container.getBoundingClientRect();
+        centerX = rect.left + rect.width / 2;
+        centerY = rect.top + rect.height / 2;
+      };
 
-      img.style.transform = `translate(-50%, -50%) translate(${-deltaX / 20}px, ${-deltaY / 20}px) scale(0.95)`;
-    };
+      updateCenter();
 
-    const handleMouseLeave = () => {
-      img.style.transform = centeredTranslate;
-    };
+      const handleMouseMove = (e: MouseEvent) => {
+        const deltaX = e.clientX - centerX;
+        const deltaY = e.clientY - centerY;
 
-    const handleResize = () => {
-      img.style.transform = centeredTranslate;
-    };
+        gsap.to(img, {
+          x: -deltaX / 20,
+          y: -deltaY / 20,
+          scale: 0.95,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      };
 
-    container.addEventListener("mousemove", handleMouseMove);
-    container.addEventListener("mouseleave", handleMouseLeave);
-    window.addEventListener("resize", handleResize);
+      const handleMouseLeave = () => {
+        gsap.to(img, {
+          x: 0,
+          y: 0,
+          scale: 1,
+          duration: 0.4,
+          ease: "power3.out",
+        });
+      };
 
-    return () => {
-      container.removeEventListener("mousemove", handleMouseMove);
-      container.removeEventListener("mouseleave", handleMouseLeave);
-      window.removeEventListener("resize", handleResize);
-    };
+      container.addEventListener("mousemove", handleMouseMove);
+      container.addEventListener("mouseleave", handleMouseLeave);
+      window.addEventListener("resize", updateCenter);
+
+      return () => {
+        container.removeEventListener("mousemove", handleMouseMove);
+        container.removeEventListener("mouseleave", handleMouseLeave);
+        window.removeEventListener("resize", updateCenter);
+      };
+    }, containerRef);
+
+    return () => ctx.revert();
   }, [isDesktop]);
 
   return (
@@ -62,12 +90,11 @@ const HomePage = () => {
           <img
             ref={imgRef}
             className={cn(
-              "ease pointer-events-none absolute top-1/2 left-1/2 hidden rounded-full object-cover transition duration-100 md:block md:h-42 md:w-28 lg:h-64 lg:w-40",
+              "pointer-events-none absolute top-1/2 left-1/2 hidden rounded-full object-cover md:block md:h-42 md:w-28 lg:h-64 lg:w-40",
               !isDesktop && "vertical-slide",
             )}
             src="/images/vh-photo.jpg"
             alt="VH Photo"
-            style={{ transform: "translate(-50%, -50%)" }}
           />
         </div>
 
