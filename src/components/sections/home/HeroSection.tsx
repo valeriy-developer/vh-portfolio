@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import Sparkle from "@/components/icons/Sparkle";
+import ScrollIndicator from "@/components/ScrollIndicator";
 import { useIsDesktop } from "@/hooks/useMediaQuery";
 import { cn } from "@/lib/utils";
 import gsap from "gsap";
@@ -89,7 +90,7 @@ const HeroSection = () => {
             ref={imgRef}
             className={cn(
               "pointer-events-none absolute top-1/2 left-1/2 hidden rounded-full object-cover md:block md:h-42 md:w-28 lg:h-64 lg:w-40",
-              !isDesktop && "vertical-slide",
+              !isDesktop && "vertical-img-animation",
             )}
             src="/images/vh-photo.jpg"
             alt="VH Photo"
@@ -101,6 +102,7 @@ const HeroSection = () => {
           I’m Valeriy Hnybydenko — a frontend developer with 3+ years of
           experience building fast and maintainable apps with modern frameworks.
         </p>
+        <ScrollIndicator />
       </Container>
     </section>
   );
