@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 
-interface iProps {
+interface Props {
   className?: string;
 }
 
-const Sparkle: React.FC<iProps> = ({ className }) => {
+const Sparkle: React.FC<Props> = ({ className }) => {
   return (
     <svg
       width="48"

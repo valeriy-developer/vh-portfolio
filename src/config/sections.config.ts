@@ -1,6 +1,8 @@
+import AboutSection from '@/components/sections/home/AboutSection';
 import HeroSection from '@/components/sections/home/HeroSection';
-import { iSection } from '@/types';
+import { Section } from '@/types';
 
-export const homepageSections: iSection[] = [
+export const homepageSections: Section[] = [
   { id: "hero", component: HeroSection },
+  { id: "about", component: AboutSection },
 ];

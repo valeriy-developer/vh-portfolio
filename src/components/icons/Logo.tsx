@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 
-interface iProps {
+interface Props {
   size?: number;
   color?: string;
   className?: string;
@@ -10,7 +10,7 @@ interface iProps {
 const DEFAULT_WIDTH = 50;
 const DEFAULT_HEIGHT = 40;
 
-const Logo: React.FC<iProps> = ({
+const Logo: React.FC<Props> = ({
   size = DEFAULT_HEIGHT,
   color = "currentColor",
   className,

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-type TBreakpoint = "sm" | "md" | "lg" | "xl" | "2xl";
+type Breakpoint = "sm" | "md" | "lg" | "xl" | "2xl";
 
-const BREAKPOINTS: Record<TBreakpoint, string> = {
+const BREAKPOINTS: Record<Breakpoint, string> = {
   sm: "(min-width: 640px)",
   md: "(min-width: 768px)",
   lg: "(min-width: 1024px)",
@@ -10,7 +10,7 @@ const BREAKPOINTS: Record<TBreakpoint, string> = {
   "2xl": "(min-width: 1536px)",
 };
 
-export const useMediaQuery = (breakpoint: TBreakpoint) => {
+export const useMediaQuery = (breakpoint: Breakpoint) => {
   const mediaQueryString = BREAKPOINTS[breakpoint];
 
   const getMatches = () => {

@@ -4,11 +4,11 @@ import { navigation } from "@/data/navigation";
 import Link from "next/link";
 import React from "react";
 
-interface iProps {
+interface Props {
   handleDropdown: (val: boolean) => void;
 }
 
-const Navigation = ({ handleDropdown }: iProps) => {
+const Navigation = ({ handleDropdown }: Props) => {
   return (
     <nav>
       <ul className="flex flex-col items-start gap-0.5">

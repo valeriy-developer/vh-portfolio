@@ -1,9 +1,6 @@
-export interface iNavigationItem {
-  label: string;
-  url: string;
-}
+import { NavigationLink } from "@/types";
 
-export const navigation: iNavigationItem[] = [
+export const navigation: NavigationLink[] = [
   {
     label: "Home",
     url: "/",
