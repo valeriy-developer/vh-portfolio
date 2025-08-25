@@ -10,7 +10,7 @@ const ProjectsSection = () => {
       <Container>
         <DividerNavLink label="Projects" url="/projects" />
         <ul className="mt-10 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-2 lg:gap-10">
-          {projects.map((project, idx) => (
+          {projects.slice(0, 4).map((project, idx) => (
             <ProjectCard key={idx} project={project} />
           ))}
         </ul>

@@ -27,3 +27,10 @@ export interface ProjectItem {
   url: string;
   img: AppImage;
 }
+
+export interface ExperienceItem {
+  position: string;
+  company: string;
+  years: string;
+  description: string;
+}
