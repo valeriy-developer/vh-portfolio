@@ -3,6 +3,11 @@ export interface Section {
   component: React.FC;
 }
 
+export interface AppImage {
+  url: string;
+  alt: string;
+}
+
 export interface NavigationLink {
   label: string;
   url: string;
@@ -13,4 +18,12 @@ export interface TechnologyItem {
   description: string;
   percent: number;
   category: string;
+}
+
+export interface ProjectItem {
+  label: string;
+  date: string;
+  description: string;
+  url: string;
+  img: AppImage;
 }
