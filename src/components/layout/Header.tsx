@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "bg-primary easing fixed top-0 left-0 z-50 w-full -translate-y-full py-3 opacity-0",
+        "bg-primary transition-[background-color, transform] fixed top-0 left-0 z-50 w-full -translate-y-full py-3 opacity-0 duration-300 ease-in",
         isVisible && "translate-y-0 opacity-100",
       )}
     >
