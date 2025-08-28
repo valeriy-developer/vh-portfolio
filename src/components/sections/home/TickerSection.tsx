@@ -9,8 +9,8 @@ const TickerSection = () => {
     <section className="overflow-hidden pt-20 md:pt-37.5">
       <Container>
         <div className="relative flex flex-col gap-3">
-          <div className="from-primary pointer-events-none absolute top-0 -right-1 z-10 h-full w-20 bg-gradient-to-l to-transparent md:w-60" />
-          <div className="from-primary pointer-events-none absolute top-0 -left-1 z-10 h-full w-20 bg-gradient-to-r to-transparent md:w-60" />
+          <div className="easing from-primary via-primary/90 pointer-events-none absolute top-0 -right-1 z-10 h-full w-15 bg-gradient-to-l to-transparent md:w-20" />
+          <div className="easing from-primary via-primary/90 pointer-events-none absolute top-0 -left-1 z-10 h-full w-15 bg-gradient-to-r to-transparent md:w-20" />
           <Marquee autoFill speed={80} className="overflow-hidden!">
             <div className="mr-5.5 flex items-center gap-5.5">
               {technologies.map((technology, idx) => (

@@ -28,14 +28,14 @@ export interface ProjectItem {
   img: AppImage;
 }
 
-export interface ExperienceItem {
-  position: string;
-  company: string;
-  years: string;
-  description: string;
-}
-
 export interface Statistic {
   count: number;
   info: string;
+}
+
+export interface CareerItem {
+  title: string;
+  organization: string;
+  years: string;
+  description: string;
 }

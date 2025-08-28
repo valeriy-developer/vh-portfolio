@@ -204,11 +204,11 @@ body {
   }
 
   .easing {
-    @apply transition-all duration-300 ease-in;
+    @apply transition-colors duration-300 ease-in;
   }
 
   .text-easing {
-    @apply transition-all duration-400 ease-in-out;
+    @apply transition-colors duration-400 ease-in-out;
   }
 
   .scrollbar::-webkit-scrollbar {

@@ -1,4 +1,5 @@
 import AboutSection from '@/components/sections/home/AboutSection';
+import EducationSection from '@/components/sections/home/EducationSection';
 import ExperienceSection from '@/components/sections/home/ExperienceSection';
 import HeroSection from '@/components/sections/home/HeroSection';
 import ProjectsSection from '@/components/sections/home/ProjectsSection';
@@ -11,4 +12,5 @@ export const homepageSections: Section[] = [
   { id: "projects", component: ProjectsSection },
   { id: "experience", component: ExperienceSection },
   { id: "ticker", component: TickerSection },
+  { id: "education", component: EducationSection },
 ];

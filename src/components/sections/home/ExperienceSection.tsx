@@ -1,10 +1,10 @@
 import Container from "@/components/Container";
 import DividerNavLink from "@/components/DividerNavLink";
-import ExperienceCard from "@/components/ExperienceCard";
 import StatisticItem from "@/components/StatisticItem";
 import { experience } from "@/data/experience";
 import { experienceStatistic } from "@/data/statistics";
 import React from "react";
+import CareerCard from "@/components/CareerCard";
 
 const ExperienceSection = () => {
   return (
@@ -12,10 +12,10 @@ const ExperienceSection = () => {
       <Container>
         <DividerNavLink label="Experience" url="/experience" />
         <ul className="mt-10 grid grid-cols-1 gap-x-0 gap-y-14 md:mt-16 md:grid-cols-2 md:gap-x-14 md:gap-y-18 lg:gap-x-17">
-          {experience.slice(0, 4).map((exp, idx) => (
-            <ExperienceCard
+          {experience.slice(0, 4).map((expItem, idx) => (
+            <CareerCard
               key={idx}
-              experience={exp}
+              career={expItem}
               className="border-secondary/10 md:[&:nth-child(n+3)]:border-t md:[&:nth-child(n+3)]:pt-18"
             />
           ))}
