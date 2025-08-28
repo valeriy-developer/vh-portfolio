@@ -34,3 +34,8 @@ export interface ExperienceItem {
   years: string;
   description: string;
 }
+
+export interface Statistic {
+  count: number;
+  info: string;
+}

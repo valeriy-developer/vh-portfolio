@@ -5,10 +5,10 @@ const SkillCard = ({ technology }: { technology: TechnologyItem }) => {
   return (
     <div className="bg-accent text-primary mx-auto flex w-full items-center gap-4 rounded-lg p-6 lg:gap-8">
       <div>
-        <h3 className="text-xl font-bold md:text-2xl lg:text-[1.625rem]">
+        <h3 className="text-xl font-bold md:text-2xl lg:text-[1.625rem] lg:leading-[1.1em]">
           {technology.label}
         </h3>
-        <p className="mt-1 text-sm leading-[1em] md:mt-2 md:text-base lg:text-lg">
+        <p className="mt-1 text-sm md:mt-2 md:text-base lg:text-lg">
           {technology.description}
         </p>
       </div>

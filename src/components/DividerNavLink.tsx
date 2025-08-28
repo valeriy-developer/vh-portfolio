@@ -5,7 +5,7 @@ import React from "react";
 const DividerNavLink = ({ label, url }: NavigationLink) => {
   return (
     <Link href={url} className="group flex items-center justify-between gap-10">
-      <h3 className="font-big-shoulders text-accent text-[2rem] font-bold tracking-[0.04em] uppercase">
+      <h3 className="font-big-shoulders text-accent text-[2rem] leading-[1.4em] font-bold tracking-[0.04em] uppercase">
         {label}
       </h3>
       <div className="relative flex h-1 w-full">

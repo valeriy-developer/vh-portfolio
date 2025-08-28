@@ -1,9 +1,14 @@
 import { ExperienceItem } from "@/types";
 import React from "react";
 
-const ExperienceCard = ({ experience }: { experience: ExperienceItem }) => {
+interface Props {
+  experience: ExperienceItem;
+  className?: string;
+}
+
+const ExperienceCard = ({ experience, className }: Props) => {
   return (
-    <li className="border-secondary/10 md:[&:nth-child(n+3)]:border-t md:[&:nth-child(n+3)]:pt-18">
+    <li className={className}>
       <h3 className="text-secondary text-xl font-semibold">
         {experience.position}
       </h3>
