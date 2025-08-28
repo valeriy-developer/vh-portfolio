@@ -30,19 +30,19 @@ const AppMenu = () => {
         >
           <span
             className={cn(
-              "bg-primary-foreground easing absolute h-0.5 w-full group-hover:w-[75%]",
+              "bg-primary-foreground transition-[background-color, transform] absolute h-0.5 w-full duration-300 ease-in group-hover:w-[75%]",
               isOpened ? "w-full rotate-45" : "-translate-y-2",
             )}
           />
           <span
             className={cn(
-              "bg-primary-foreground easing absolute h-0.5 w-[50%] group-hover:w-full",
+              "bg-primary-foreground transition-[background-color, transform] absolute h-0.5 w-[50%] duration-300 ease-in group-hover:w-full",
               isOpened ? "w-full opacity-0" : "opacity-100",
             )}
           />
           <span
             className={cn(
-              "bg-primary-foreground easing absolute h-0.5 w-[75%] group-hover:w-[50%]",
+              "bg-primary-foreground transition-[background-color, transform] absolute h-0.5 w-[75%] duration-300 ease-in group-hover:w-[50%]",
               isOpened ? "w-full -rotate-45" : "translate-y-2",
             )}
           />
