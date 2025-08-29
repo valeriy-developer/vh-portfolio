@@ -150,6 +150,9 @@ body {
   body {
     @apply bg-primary text-secondary;
   }
+  button {
+    @apply cursor-pointer;
+  }
 }
 
 @layer utilities {
@@ -204,6 +207,37 @@ body {
 
   .vertical-chevron-animation {
     animation: vertical-chevron-slide 1s infinite alternate;
+  }
+
+  .h-underline,
+  .h-reverse-underline {
+    position: relative;
+  }
+
+  .h-underline::before,
+  .h-underline-r::before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+  }
+
+  .h-underline::before {
+    width: 100%;
+  }
+  .h-underline:hover::before {
+    width: 0;
+  }
+
+  .h-underline-r::before {
+    width: 0;
+  }
+  .h-underline-r:hover::before {
+    width: 100%;
   }
 
   @keyframes vertical-img-slide {
