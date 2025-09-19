@@ -40,12 +40,9 @@ const HeroSection = () => {
       updateCenter();
 
       const handleMouseMove = (e: MouseEvent) => {
-        const deltaX = e.clientX - centerX;
-        const deltaY = e.clientY - centerY;
-
         gsap.to(img, {
-          x: -deltaX / 20,
-          y: -deltaY / 20,
+          x: -(e.clientX - centerX) / 20,
+          y: -(e.clientY - centerY) / 20,
           scale: 0.95,
           duration: 0.3,
           ease: "power2.out",
