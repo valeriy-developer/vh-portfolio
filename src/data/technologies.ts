@@ -43,4 +43,11 @@ export const technologies: TechnologyItem[] = [
     percent: 84,
     category: "State Management",
   },
+  {
+    label: "GSAP",
+    description:
+      "Robust JavaScript animation library for high-performance animations",
+    percent: 85,
+    category: "Animation",
+  },
 ];

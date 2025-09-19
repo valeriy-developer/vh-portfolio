@@ -7,6 +7,7 @@ import ProjectsSection from '@/components/sections/home/ProjectsSection';
 import TickerSection from '@/components/sections/home/TickerSection';
 import { Section } from '@/types';
 import ProfileSection from '@/components/sections/about/ProfileSection';
+import SkillsSection from '@/components/sections/about/SkillsSection';
 
 export const homepageSections: Section[] = [
   { id: "hero", component: HeroSectionHome },
@@ -20,4 +21,5 @@ export const homepageSections: Section[] = [
 export const aboutpageSections: Section[] = [
   { id: "hero", component: HeroSectionAbout },
   { id: "profile", component: ProfileSection },
+  { id: "skills", component: SkillsSection },
 ];
