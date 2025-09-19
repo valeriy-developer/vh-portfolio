@@ -14,25 +14,7 @@ import {
   ContactFormValues,
 } from "@/lib/validation/contact-schema";
 import { cn } from "@/lib/utils";
-
-const contacts = [
-  {
-    href: "http://maps.google.com/?q=Ukraine, Kriviy Rih",
-    label: "Ukraine, Kriviy Rih",
-    external: true,
-  },
-  {
-    href: "mailto:valeriy.gnybidenko@gmail.com",
-    label: "valeriy.gnybidenko@gmail.com",
-    className: "text-accent h-underline-r relative",
-  },
-  {
-    href: "https://www.linkedin.com/in/valeriy-hnybidenko-036632279",
-    label: "LinkedIn",
-    external: true,
-    className: "text-accent h-underline-r relative",
-  },
-];
+import { contacts } from "@/data/contacts";
 
 const FormFieldInput = ({
   name,
@@ -84,7 +66,7 @@ const AppContact = () => {
               a chat about tech. Let&rsquo;s connect!
             </p>
             <div className="mt-6 flex flex-col gap-1 text-sm md:mt-9.5 md:text-base lg:text-lg">
-              {contacts.map(({ href, label, external, className }) => (
+              {contacts.map(({ href, label, external, id, className }) => (
                 <a
                   key={label}
                   href={href}
@@ -92,6 +74,7 @@ const AppContact = () => {
                   target={external ? "_blank" : undefined}
                   className={cn(
                     "w-fit transition-colors duration-300",
+                    id === "location" && "hover:text-accent",
                     className,
                   )}
                 >
