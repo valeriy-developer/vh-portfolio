@@ -23,4 +23,10 @@ export const contacts: Contact[] = [
     label: "LinkedIn",
     external: true,
   },
+  {
+    id: "github",
+    href: "https://github.com/valeriy-developer",
+    label: "Github",
+    external: true,
+  },
 ];

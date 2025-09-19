@@ -13,7 +13,7 @@ const AppHeroContent = ({ title, className }: Props) => {
     <section>
       <Container
         className={cn(
-          "col-center font-big-shoulders text-accent pt-28 text-[5rem] leading-[1em] font-black uppercase md:pt-36 md:text-[11.25rem]",
+          "col-center font-big-shoulders text-accent easing-text pt-28 text-[5rem] leading-[1em] font-black uppercase md:pt-36 md:text-[11.25rem]",
           className,
         )}
       >

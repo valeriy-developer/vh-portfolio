@@ -16,7 +16,7 @@ const Navigation = ({ handleDropdown }: Props) => {
           <li key={idx} className="group" onClick={() => handleDropdown(false)}>
             <Link
               href={url}
-              className="font-big-shoulders group-hover:text-accent text-easing text-3xl font-bold uppercase"
+              className="font-big-shoulders group-hover:text-accent easing-text text-3xl font-bold uppercase"
             >
               {label}
             </Link>

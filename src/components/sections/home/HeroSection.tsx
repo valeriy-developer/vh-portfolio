@@ -80,7 +80,7 @@ const HeroSection = () => {
           Building interfaces since — Y:2020
         </p>
         <div ref={containerRef} className="relative mt-3 lg:mt-2.5">
-          <h1 className="font-big-shoulders text-accent text-easing text-6xl leading-[1em] font-black tracking-[-0.02em] uppercase md:text-9xl lg:text-[12.5rem]">
+          <h1 className="font-big-shoulders text-accent easing-text text-6xl leading-[1em] font-black tracking-[-0.02em] uppercase md:text-9xl lg:text-[12.5rem]">
             Valeriy <br /> Hnybidenko
           </h1>
           <img
@@ -89,14 +89,14 @@ const HeroSection = () => {
               "pointer-events-none absolute top-1/2 left-1/2 hidden rounded-full object-cover md:block md:h-42 md:w-28 lg:h-64 lg:w-40",
               !isDesktop && "vertical-img-animation",
             )}
-            src="/images/vh-photo.jpg"
+            src="/images/vh-photo.png"
             alt="VH Photo"
           />
         </div>
 
         <Sparkle className="text-accent mt-8 h-8 w-8 md:h-12 md:w-12" />
-        <p className="text-easing mt-8 max-w-[24rem] leading-[1.8em] md:max-w-[25rem] md:text-lg lg:max-w-[33rem] lg:text-[1.375rem]">
-          I’m Valeriy Hnybydenko — a frontend developer with 3+ years of
+        <p className="easing-text mt-8 max-w-[24rem] leading-[1.8em] md:max-w-[25rem] md:text-lg lg:max-w-[33rem] lg:text-[1.375rem]">
+          I&rsquo;m Valeriy Hnybydenko — a frontend developer with 3+ years of
           experience building fast and maintainable apps with modern frameworks.
         </p>
         <ScrollIndicator />

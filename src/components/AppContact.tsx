@@ -72,11 +72,11 @@ const AppContact = () => {
                   href={href}
                   target={external ? "_blank" : undefined}
                   rel={external ? "noopener noreferrer" : undefined}
+                  aria-label={label}
                   className={cn(
                     "w-fit transition-colors duration-300",
                     id === "location" && "hover:text-accent",
-                    (id === "email" || id === "linkedin") &&
-                      "text-accent h-underline-r relative",
+                    id !== "location" && "text-accent h-underline-r relative",
                   )}
                 >
                   {label}

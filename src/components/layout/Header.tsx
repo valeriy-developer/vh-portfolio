@@ -4,7 +4,7 @@ import React from "react";
 import AppMenu from "../AppMenu";
 import ThemeToggle from "../ThemeToggle";
 import Container from "../Container";
-import SecondLogo from "../icons/Logo";
+import Logo from "../icons/Logo";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useHeader } from "@/providers/HeaderProvider";
@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "bg-primary transition-[background-color, transform] fixed top-0 left-0 z-50 w-screen -translate-y-full py-3 opacity-0 duration-300 ease-in",
+        "bg-primary transition-[background, transform] fixed top-0 left-0 z-50 w-screen -translate-y-full py-3 opacity-0 duration-300 ease-in",
         isVisible && "translate-y-0 opacity-100",
       )}
     >
@@ -23,7 +23,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <AppMenu />
           <Link href="/">
-            <SecondLogo />
+            <Logo />
           </Link>
           <ThemeToggle />
         </div>
