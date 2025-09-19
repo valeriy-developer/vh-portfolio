@@ -4,19 +4,19 @@ export const technologies: TechnologyItem[] = [
   {
     label: "React",
     description: "JavaScript library for building user interfaces",
-    percent: 90,
+    percent: 93,
     category: "Frontend",
   },
   {
     label: "Next.js",
     description: "React framework for server-side rendering and static sites",
-    percent: 85,
+    percent: 87,
     category: "Frontend",
   },
   {
     label: "Vue 3",
     description: "Progressive JavaScript framework for UI development",
-    percent: 80,
+    percent: 72,
     category: "Frontend",
   },
   {

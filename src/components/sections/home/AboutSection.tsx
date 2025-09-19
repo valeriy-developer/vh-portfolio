@@ -24,11 +24,9 @@ const AboutSection = () => {
               contemporary frontend practices, enabling me to craft solutions
               that are both technically solid and user-centric.
             </p>
-            <ul className="mt-8 flex flex-col items-center gap-5">
+            <ul className="mt-8 flex flex-col items-center gap-5 max-md:mx-auto max-md:max-w-107.5">
               {technologies.slice(0, 3).map((technology, idx) => (
-                <li key={idx} className="max-md:max-w-107.5">
-                  <SkillCard technology={technology} />
-                </li>
+                <SkillCard key={idx} technology={technology} />
               ))}
             </ul>
           </div>
