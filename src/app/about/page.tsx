@@ -1,12 +1,14 @@
 "use client";
 
-import Container from "@/components/Container";
+import { aboutpageSections } from "@/config/sections.config";
 
 const AboutPage = () => {
   return (
-    <Container>
-      <div>About page</div>
-    </Container>
+    <>
+      {aboutpageSections.map(({ id, component: Component }) => (
+        <Component key={id} />
+      ))}
+    </>
   );
 };
 
