@@ -4,7 +4,7 @@ import { education } from "@/data/education";
 import React from "react";
 import CareerCard from "@/components/CareerCard";
 
-const EducationSection = () => {
+const HomeEducation = () => {
   return (
     <section className="pt-20 md:pt-37.5">
       <Container>
@@ -23,4 +23,4 @@ const EducationSection = () => {
   );
 };
 
-export default EducationSection;
+export default HomeEducation;

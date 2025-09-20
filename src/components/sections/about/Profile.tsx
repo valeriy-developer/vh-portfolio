@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 import ProfileCard from "@/components/ProfileCard";
 import React from "react";
 
-const ProfileSection = () => {
+const AboutProfile = () => {
   return (
     <section className="pt-16 md:pt-25">
       <Container>
@@ -38,4 +38,4 @@ const ProfileSection = () => {
   );
 };
 
-export default ProfileSection;
+export default AboutProfile;

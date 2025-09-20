@@ -1,11 +1,11 @@
 "use client";
 
-import { aboutpageSections } from "@/config/sections.config";
+import { aboutPageSections } from "@/config/sections.config";
 
 const AboutPage = () => {
   return (
     <>
-      {aboutpageSections.map(({ id, component: Component }) => (
+      {aboutPageSections.map(({ id, component: Component }) => (
         <Component key={id} />
       ))}
     </>

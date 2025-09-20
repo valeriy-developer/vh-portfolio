@@ -3,7 +3,7 @@ import SkillCard from "@/components/SkillCard";
 import { technologies } from "@/data/technologies";
 import React from "react";
 
-const SkillsSection = () => {
+const AboutSkills = () => {
   return (
     <section className="pt-6 md:pt-21">
       <Container>
@@ -17,4 +17,4 @@ const SkillsSection = () => {
   );
 };
 
-export default SkillsSection;
+export default AboutSkills;

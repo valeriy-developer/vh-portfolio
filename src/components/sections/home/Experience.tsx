@@ -6,7 +6,7 @@ import { experienceStatistic } from "@/data/statistics";
 import React from "react";
 import CareerCard from "@/components/CareerCard";
 
-const ExperienceSection = () => {
+const HomeExperience = () => {
   return (
     <section className="pt-20 md:pt-37.5">
       <Container>
@@ -34,4 +34,4 @@ const ExperienceSection = () => {
   );
 };
 
-export default ExperienceSection;
+export default HomeExperience;

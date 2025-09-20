@@ -7,7 +7,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { Control, useForm } from "react-hook-form";
 import { Textarea } from "./ui/textarea";
 import {
   contactFormSchema,
@@ -23,7 +23,7 @@ const FormFieldInput = ({
 }: {
   name: keyof ContactFormValues;
   placeholder: string;
-  control: any;
+  control: Control<ContactFormValues>;
 }) => (
   <FormField
     control={control}

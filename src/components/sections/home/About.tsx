@@ -4,7 +4,7 @@ import SkillCard from "@/components/SkillCard";
 import { technologies } from "@/data/technologies";
 import React from "react";
 
-const AboutSection = () => {
+const HomeAbout = () => {
   return (
     <section className="pt-20 md:pt-37.5">
       <Container>
@@ -36,4 +36,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default HomeAbout;

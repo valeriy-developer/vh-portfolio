@@ -1,11 +1,11 @@
 "use client";
 
-import { homepageSections } from "@/config/sections.config";
+import { homePageSections } from "@/config/sections.config";
 
 const HomePage = () => {
   return (
     <>
-      {homepageSections.map(({ id, component: Component }) => (
+      {homePageSections.map(({ id, component: Component }) => (
         <Component key={id} />
       ))}
     </>

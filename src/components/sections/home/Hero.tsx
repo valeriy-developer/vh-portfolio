@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import gsap from "gsap";
 import React, { useEffect, useRef } from "react";
 
-const HeroSection = () => {
+const HomeHero = () => {
   const isDesktop = useIsDesktop();
   const imgRef = useRef<HTMLImageElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -105,4 +105,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default HomeHero;

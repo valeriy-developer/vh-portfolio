@@ -53,6 +53,9 @@
 }
 
 body {
+  width: 100vw;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
   font-family: var(--font-dm-sans), system-ui, sans-serif;
   transition: background-color 0.4s ease-in-out;
 }

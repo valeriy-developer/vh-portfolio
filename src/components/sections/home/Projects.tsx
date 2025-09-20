@@ -4,7 +4,7 @@ import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import React from "react";
 
-const ProjectsSection = () => {
+const HomeProjects = () => {
   return (
     <section className="pt-20 md:pt-37.5">
       <Container>
@@ -19,4 +19,4 @@ const ProjectsSection = () => {
   );
 };
 
-export default ProjectsSection;
+export default HomeProjects;

@@ -1,32 +1,37 @@
-import AboutSection from '@/components/sections/home/AboutSection';
-import EducationSection from '@/components/sections/home/EducationSection';
-import ExperienceSection from '@/components/sections/home/ExperienceSection';
-import HeroSectionHome from '@/components/sections/home/HeroSection';
-import HeroSectionAbout from '@/components/sections/about/HeroSection';
-import HeroSectionProjects from '@/components/sections/projects/HeroSection';
-import ProjectsSectionHome from '@/components/sections/home/ProjectsSection';
-import TickerSection from '@/components/sections/home/TickerSection';
 import { Section } from '@/types';
-import ProfileSection from '@/components/sections/about/ProfileSection';
-import SkillsSection from '@/components/sections/about/SkillsSection';
-import ProjectsSection from '@/components/sections/projects/ProjectsSection';
+import HomeAbout from '@/components/sections/home/About';
+import HomeProjects from '@/components/sections/home/Projects';
+import HomeExperience from '@/components/sections/home/Experience';
+import HomeTicker from '@/components/sections/home/Ticker';
+import HomeEducation from '@/components/sections/home/Education';
+import AboutProfile from '@/components/sections/about/Profile';
+import AboutSkills from '@/components/sections/about/Skills';
+import HomeHero from '@/components/sections/home/Hero';
+import AboutHero from '@/components/sections/about/Hero';
+import ProjectsHero from '@/components/sections/projects/Hero';
+import ProjectsSection from '@/components/sections/projects/Projects';
+import ExperienceHero from '@/components/sections/experience/Hero';
 
-export const homepageSections: Section[] = [
-  { id: "hero", component: HeroSectionHome },
-  { id: "about", component: AboutSection },
-  { id: "projects", component: ProjectsSectionHome },
-  { id: "experience", component: ExperienceSection },
-  { id: "ticker", component: TickerSection },
-  { id: "education", component: EducationSection },
+export const homePageSections: Section[] = [
+  { id: "hero", component: HomeHero },
+  { id: "about", component: HomeAbout },
+  { id: "projects", component: HomeProjects },
+  { id: "experience", component: HomeExperience },
+  { id: "ticker", component: HomeTicker },
+  { id: "education", component: HomeEducation },
 ];
 
-export const aboutpageSections: Section[] = [
-  { id: "hero", component: HeroSectionAbout },
-  { id: "profile", component: ProfileSection },
-  { id: "skills", component: SkillsSection },
+export const aboutPageSections: Section[] = [
+  { id: "hero", component: AboutHero },
+  { id: "profile", component: AboutProfile },
+  { id: "skills", component: AboutSkills },
 ];
 
-export const projectspageSections: Section[] = [
-  { id: "hero", component: HeroSectionProjects },
+export const projectsPageSections: Section[] = [
+  { id: "hero", component: ProjectsHero },
   { id: "projects", component: ProjectsSection },
+];
+
+export const experiencePageSections: Section[] = [
+  { id: "hero", component: ExperienceHero },
 ];

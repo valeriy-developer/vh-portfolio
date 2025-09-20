@@ -1,12 +1,14 @@
 "use client";
 
-import Container from "@/components/Container";
+import { experiencePageSections } from "@/config/sections.config";
 
 const ExperiencePage = () => {
   return (
-    <Container>
-      <div>Experience page</div>
-    </Container>
+    <>
+      {experiencePageSections.map(({ id, component: Component }) => (
+        <Component key={id} />
+      ))}
+    </>
   );
 };
 

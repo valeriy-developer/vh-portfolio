@@ -4,7 +4,7 @@ import { technologies } from "@/data/technologies";
 import React from "react";
 import Marquee from "react-fast-marquee";
 
-const TickerSection = () => {
+const HomeTicker = () => {
   return (
     <section className="overflow-hidden pt-20 md:pt-37.5">
       <Container className="px-0 md:px-6 lg:px-28">
@@ -48,4 +48,4 @@ const TickerSection = () => {
   );
 };
 
-export default TickerSection;
+export default HomeTicker;
