@@ -11,11 +11,7 @@ const HomeEducation = () => {
         <DividerNavLink label="Education" url="/education" />
         <ul className="mt-10 grid grid-cols-1 gap-x-0 gap-y-14 md:mt-16 md:grid-cols-2 md:gap-x-14 md:gap-y-18 lg:gap-x-17">
           {education.slice(0, 4).map((educationItem, idx) => (
-            <CareerCard
-              key={idx}
-              career={educationItem}
-              className="border-secondary/10 md:[&:nth-child(n+3)]:border-t md:[&:nth-child(n+3)]:pt-18"
-            />
+            <CareerCard key={idx} career={educationItem} />
           ))}
         </ul>
       </Container>

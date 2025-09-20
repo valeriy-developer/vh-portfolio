@@ -12,6 +12,9 @@ import ProjectsHero from '@/components/sections/projects/Hero';
 import ProjectsSection from '@/components/sections/projects/Projects';
 import ExperienceHero from '@/components/sections/experience/Hero';
 import ExperienceSection from '@/components/sections/experience/Experience';
+import EducationHero from '@/components/sections/education/Hero';
+import EducationSection from '@/components/sections/education/Education';
+import EducationTicker from '@/components/sections/education/Ticker';
 
 export const homePageSections: Section[] = [
   { id: "hero", component: HomeHero },
@@ -36,4 +39,10 @@ export const projectsPageSections: Section[] = [
 export const experiencePageSections: Section[] = [
   { id: "hero", component: ExperienceHero },
   { id: "experience", component: ExperienceSection },
+];
+
+export const educationPageSections: Section[] = [
+  { id: "hero", component: EducationHero },
+  { id: "education", component: EducationSection },
+  { id: "ticker", component: EducationTicker },
 ];

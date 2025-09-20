@@ -4,7 +4,7 @@ import TickerGroup from "@/components/TickerGroup";
 import { technologies } from "@/data/technologies";
 import React from "react";
 
-const HomeTicker = () => {
+const EducationTicker = () => {
   return (
     <section className="overflow-hidden pt-20 md:pt-37.5">
       <Container className="px-0 md:px-6 lg:px-28">
@@ -26,4 +26,4 @@ const HomeTicker = () => {
   );
 };
 
-export default HomeTicker;
+export default EducationTicker;
