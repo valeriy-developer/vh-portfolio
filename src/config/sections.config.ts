@@ -15,6 +15,7 @@ import ExperienceSection from '@/components/sections/experience/Experience';
 import EducationHero from '@/components/sections/education/Hero';
 import EducationSection from '@/components/sections/education/Education';
 import EducationTicker from '@/components/sections/education/Ticker';
+import ContactHero from '@/components/sections/contact/Hero';
 
 export const homePageSections: Section[] = [
   { id: "hero", component: HomeHero },
@@ -45,4 +46,8 @@ export const educationPageSections: Section[] = [
   { id: "hero", component: EducationHero },
   { id: "education", component: EducationSection },
   { id: "ticker", component: EducationTicker },
+];
+
+export const contactPageSections: Section[] = [
+  { id: "hero", component: ContactHero },
 ];
