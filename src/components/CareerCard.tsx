@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { CareerItem } from "@/types";
 import React from "react";
 
@@ -8,7 +9,12 @@ interface Props {
 
 const CareerCard = ({ career, className }: Props) => {
   return (
-    <li className={className}>
+    <li
+      className={cn(
+        "border-secondary/10 md:[&:nth-child(n+3)]:border-t md:[&:nth-child(n+3)]:pt-18",
+        className,
+      )}
+    >
       <h3 className="text-secondary text-xl font-semibold">{career.title}</h3>
 
       <div className="text-secondary/50 mt-2 flex flex-col font-medium">

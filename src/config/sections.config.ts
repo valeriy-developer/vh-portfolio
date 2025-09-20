@@ -11,6 +11,7 @@ import AboutHero from '@/components/sections/about/Hero';
 import ProjectsHero from '@/components/sections/projects/Hero';
 import ProjectsSection from '@/components/sections/projects/Projects';
 import ExperienceHero from '@/components/sections/experience/Hero';
+import ExperienceSection from '@/components/sections/experience/Experience';
 
 export const homePageSections: Section[] = [
   { id: "hero", component: HomeHero },
@@ -34,4 +35,5 @@ export const projectsPageSections: Section[] = [
 
 export const experiencePageSections: Section[] = [
   { id: "hero", component: ExperienceHero },
+  { id: "experience", component: ExperienceSection },
 ];
