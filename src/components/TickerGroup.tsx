@@ -5,15 +5,15 @@ import { cn } from "@/lib/utils";
 interface Props {
   speed?: number;
   className?: string;
-  firstMarqueeDirection?: "left" | "right";
-  secondMarqueeDirection?: "left" | "right";
+  topDirection?: "left" | "right";
+  bottomDirection?: "left" | "right";
   children: React.ReactNode;
 }
 
 const TickerGroup = ({
   speed = 80,
-  firstMarqueeDirection = "left",
-  secondMarqueeDirection = "right",
+  topDirection = "left",
+  bottomDirection = "right",
   children,
   className,
 }: Props) => {
@@ -22,7 +22,7 @@ const TickerGroup = ({
       <div className="easing from-primary via-primary/90 pointer-events-none absolute top-0 -right-1 z-10 h-full w-20 bg-gradient-to-l to-transparent" />
       <div className="easing from-primary via-primary/90 pointer-events-none absolute top-0 -left-1 z-10 h-full w-20 bg-gradient-to-r to-transparent" />
       <Marquee
-        direction={firstMarqueeDirection}
+        direction={topDirection}
         autoFill
         speed={speed}
         className="overflow-hidden!"
@@ -30,7 +30,7 @@ const TickerGroup = ({
         {children}
       </Marquee>
       <Marquee
-        direction={secondMarqueeDirection}
+        direction={bottomDirection}
         autoFill
         speed={speed}
         className="overflow-hidden!"
