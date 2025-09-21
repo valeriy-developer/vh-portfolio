@@ -23,7 +23,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <AppMenu />
           <Link href="/">
-            <Logo className="h-12 w-12" isAnimate />
+            <Logo className="h-10 w-10 md:h-12 md:w-12" isAnimate />
           </Link>
           <ThemeToggle />
         </div>

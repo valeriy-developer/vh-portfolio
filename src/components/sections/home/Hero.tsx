@@ -94,7 +94,7 @@ const HomeHero = () => {
           />
         </div>
 
-        <Sparkle className="text-accent mt-8 h-8 w-8 md:h-12 md:w-12" />
+        <Sparkle className="text-accent easing mt-8 h-8 w-8 md:h-12 md:w-12" />
         <p className="easing-text mt-8 max-w-[24rem] leading-[1.8em] md:max-w-[25rem] md:text-lg lg:max-w-[33rem] lg:text-[1.375rem]">
           I&rsquo;m Valeriy Hnybydenko — a frontend developer with 3+ years of
           experience building fast and maintainable apps with modern frameworks.
