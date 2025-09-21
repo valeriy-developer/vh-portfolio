@@ -12,3 +12,10 @@ export const ThemeProvider = dynamic(
     ssr: false,
   },
 );
+
+export const PageTransitionProvider = dynamic(
+  () => import("@/providers/PageTransitionProvider"),
+  {
+    ssr: false,
+  },
+);

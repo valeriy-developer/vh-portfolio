@@ -4,10 +4,10 @@ import React from "react";
 import AppMenu from "../AppMenu";
 import ThemeToggle from "../ThemeToggle";
 import Container from "../Container";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useHeader } from "@/providers/HeaderProvider";
 import Logo from "../icons/Logo";
+import TransitionLink from "../TransitionLink";
 
 const Header = () => {
   const { isVisible } = useHeader();
@@ -22,9 +22,9 @@ const Header = () => {
       <Container>
         <div className="flex items-center justify-between">
           <AppMenu />
-          <Link href="/">
+          <TransitionLink href="/">
             <Logo className="h-10 w-10 md:h-12 md:w-12" isAnimate />
-          </Link>
+          </TransitionLink>
           <ThemeToggle />
         </div>
       </Container>

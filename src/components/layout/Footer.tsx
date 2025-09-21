@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="flex flex-col gap-6 md:gap-10">
       <AppContact />
 
-      <Marquee speed={120} autoFill pauseOnHover>
+      <Marquee speed={120} autoFill pauseOnHover className="overflow-y-hidden">
         <div className="mr-14 flex items-center gap-14 md:mr-18 md:gap-18">
           {contacts
             .filter(({ id }) => ["facebook", "github", "linkedin"].includes(id))

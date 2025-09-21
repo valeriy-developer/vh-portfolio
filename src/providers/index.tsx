@@ -1,6 +1,6 @@
 "use client";
 
-import { ThemeProvider } from "@/components/dynamic";
+import { PageTransitionProvider, ThemeProvider } from "@/components/dynamic";
 import { ReactNode } from "react";
 import { HeaderProvider } from "./HeaderProvider";
 
@@ -10,9 +10,11 @@ interface Props {
 
 const Providers = ({ children }: Props) => {
   return (
-    <ThemeProvider>
-      <HeaderProvider>{children}</HeaderProvider>
-    </ThemeProvider>
+    <PageTransitionProvider>
+      <ThemeProvider>
+        <HeaderProvider>{children}</HeaderProvider>
+      </ThemeProvider>
+    </PageTransitionProvider>
   );
 };
 

@@ -2,7 +2,7 @@
 
 import AppHeroContent from "@/components/AppHeroContent";
 import Container from "@/components/Container";
-import Link from "next/link";
+import TransitionLink from "@/components/TransitionLink";
 
 const NotFoundPage = () => {
   return (
@@ -11,12 +11,12 @@ const NotFoundPage = () => {
       <Container>
         <p className="easing-text mt-28 text-center text-lg md:text-xl lg:text-[1.375rem]">
           Ooops! Something went wrong. Please go back to{" "}
-          <Link
+          <TransitionLink
             href="/"
             className="easing-text text-accent h-underline-r relative"
           >
             homepage
-          </Link>
+          </TransitionLink>
           .
         </p>
       </Container>
