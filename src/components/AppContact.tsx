@@ -66,22 +66,26 @@ const AppContact = () => {
               a chat about tech. Let&rsquo;s connect!
             </p>
             <div className="mt-6 flex flex-col gap-1 text-sm md:mt-9.5 md:text-base lg:text-lg">
-              {contacts.map(({ href, label, external, id }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={external ? "_blank" : undefined}
-                  rel={external ? "noopener noreferrer" : undefined}
-                  aria-label={label}
-                  className={cn(
-                    "w-fit transition-colors duration-300",
-                    id === "location" && "hover:text-accent",
-                    id !== "location" && "text-accent h-underline-r relative",
-                  )}
-                >
-                  {label}
-                </a>
-              ))}
+              {contacts
+                .filter(({ id }) =>
+                  ["email", "location", "linkedin"].includes(id),
+                )
+                .map(({ href, label, external, id }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    aria-label={label}
+                    className={cn(
+                      "w-fit transition-colors duration-300",
+                      id === "location" && "hover:text-accent",
+                      id !== "location" && "text-accent h-underline-r relative",
+                    )}
+                  >
+                    {label}
+                  </a>
+                ))}
             </div>
           </div>
 

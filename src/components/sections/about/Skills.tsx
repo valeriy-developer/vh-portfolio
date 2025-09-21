@@ -7,7 +7,7 @@ const AboutSkills = () => {
   return (
     <section className="pt-6 md:pt-21">
       <Container>
-        <ul className="grid grid-cols-2 gap-x-16 gap-y-8">
+        <ul className="mx-auto grid grid-cols-1 gap-x-16 gap-y-8 max-md:max-w-107.5 md:grid-cols-2">
           {technologies.map((technology, idx) => (
             <SkillCard key={idx} technology={technology} />
           ))}
