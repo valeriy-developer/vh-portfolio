@@ -4,7 +4,7 @@ import React from "react";
 import AppMenu from "../AppMenu";
 import ThemeToggle from "../ThemeToggle";
 import Container from "../Container";
-import Logo from "../icons/Logo";
+import StrokeLogo from "../icons/StrokeLogo";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useHeader } from "@/providers/HeaderProvider";
@@ -23,7 +23,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <AppMenu />
           <Link href="/">
-            <Logo />
+            <StrokeLogo />
           </Link>
           <ThemeToggle />
         </div>
