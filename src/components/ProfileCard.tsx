@@ -1,9 +1,9 @@
 import React from "react";
-import FillLogo from "./icons/FillLogo";
 import Linkedin from "./icons/socials/Linkedin";
 import Github from "./icons/socials/Github";
 import { contacts } from "@/data/contacts";
 import { cn } from "@/lib/utils";
+import Logo from "./icons/Logo";
 
 interface Props {
   className?: string;
@@ -22,7 +22,7 @@ const ProfileCard = ({ className }: Props) => {
         src="/images/vh-photo.png"
         alt="VH Photo"
       />
-      <FillLogo className="easing text-accent absolute top-2 right-4 z-10 h-[60px] w-[60px] md:top-0 md:-right-5 md:h-[100px] md:w-[100px]" />
+      <Logo className="easing text-accent absolute top-2 right-3.5 z-10 h-[60px] w-[60px] md:top-0 md:-right-5.5 md:h-[100px] md:w-[100px]" />
       <div className="bg-accent text-primary absolute right-0 bottom-0 flex h-[75%] w-full max-w-[278px] items-end justify-center gap-5 rounded-lg px-16.5 py-6 transition-[background] duration-300 ease-in md:max-w-[336px] md:py-4">
         {contacts
           .filter(({ id }) => ["linkedin", "github"].includes(id))

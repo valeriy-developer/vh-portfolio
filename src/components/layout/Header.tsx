@@ -4,10 +4,10 @@ import React from "react";
 import AppMenu from "../AppMenu";
 import ThemeToggle from "../ThemeToggle";
 import Container from "../Container";
-import StrokeLogo from "../icons/StrokeLogo";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useHeader } from "@/providers/HeaderProvider";
+import Logo from "../icons/Logo";
 
 const Header = () => {
   const { isVisible } = useHeader();
@@ -23,7 +23,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <AppMenu />
           <Link href="/">
-            <StrokeLogo />
+            <Logo className="h-12 w-12" isAnimate />
           </Link>
           <ThemeToggle />
         </div>
