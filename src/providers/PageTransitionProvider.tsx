@@ -2,8 +2,8 @@
 
 import { createContext, useContext, ReactNode, RefObject } from "react";
 import { usePageTransitionAnimation } from "@/hooks/usePageTransition";
-import Logo from "@/components/icons/Logo";
 import { useIsDesktop } from "@/hooks/useMediaQuery";
+import LoadingLogo from "@/components/icons/LoadingLogo";
 
 interface TransitionContextType {
   coverPage: (url: string) => void;
@@ -18,7 +18,8 @@ const TransitionContext = createContext<TransitionContextType>({
 });
 
 const PageTransitionProvider = ({ children }: { children: ReactNode }) => {
-  const { blocksRef, logoOverlayRef, coverPage } = usePageTransitionAnimation();
+  const { blocksRef, logoOverlayRef, logoRef, coverPage } =
+    usePageTransitionAnimation();
   const isDesktop = useIsDesktop();
   const blocksToShow = isDesktop ? 20 : 10;
 
@@ -42,7 +43,7 @@ const PageTransitionProvider = ({ children }: { children: ReactNode }) => {
         ref={logoOverlayRef}
         className="flex-center bg-primary text-foreground pointer-events-none fixed top-0 left-0 z-60 h-svh w-screen opacity-0"
       >
-        <Logo className="h-16 w-16 md:h-24 md:w-24" />
+        <LoadingLogo logoRef={logoRef} className="h-16 w-16 md:h-24 md:w-24" />
       </div>
 
       {children}

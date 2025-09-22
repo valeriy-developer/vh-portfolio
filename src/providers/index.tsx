@@ -10,11 +10,11 @@ interface Props {
 
 const Providers = ({ children }: Props) => {
   return (
-    <PageTransitionProvider>
-      <ThemeProvider>
+    <ThemeProvider>
+      <PageTransitionProvider>
         <HeaderProvider>{children}</HeaderProvider>
-      </ThemeProvider>
-    </PageTransitionProvider>
+      </PageTransitionProvider>
+    </ThemeProvider>
   );
 };
 
