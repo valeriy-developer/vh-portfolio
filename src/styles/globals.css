@@ -244,8 +244,8 @@ body {
   }
 
   .logo-path {
-    stroke-dasharray: var(--path-length);
-    stroke-dashoffset: var(--path-length);
+    stroke-dasharray: 291px;
+    stroke-dashoffset: 291px;
     animation: logo-draw 8s ease-in-out infinite;
     will-change: stroke-dashoffset;
   }
@@ -273,7 +273,7 @@ body {
 
   @keyframes logo-draw {
     0% {
-      stroke-dashoffset: var(--path-length);
+      stroke-dashoffset: 291px;
     }
     35% {
       stroke-dashoffset: 0;
@@ -282,10 +282,10 @@ body {
       stroke-dashoffset: 0;
     }
     85% {
-      stroke-dashoffset: var(--path-length);
+      stroke-dashoffset: 291px;
     }
     100% {
-      stroke-dashoffset: var(--path-length);
+      stroke-dashoffset: 291px;
     }
   }
 }

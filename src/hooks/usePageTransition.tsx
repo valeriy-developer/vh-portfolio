@@ -50,11 +50,13 @@ export const usePageTransitionAnimation =
       return () => {
         tween.kill();
       };
-    }, [pathname]);
+    }, [pathname, lenis]);
 
     const coverPage = (url: string) => {
       if (isAnimate || url === pathname) return;
-      const pathEl = logoRef.current?.querySelector("path");
+      const pathEl = logoRef.current?.querySelector(
+        "[data-animation-path]",
+      ) as SVGPathElement;
 
       lenis?.stop();
       setIsAnimate(true);
