@@ -12,6 +12,7 @@ interface Props {
 const ProfileCard = ({ className }: Props) => {
   return (
     <div
+      data-profile-card
       className={cn(
         "relative h-[454px] w-full max-w-[325px] md:h-[536px] md:max-w-[370px]",
         className,

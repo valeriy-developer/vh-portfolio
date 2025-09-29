@@ -42,7 +42,7 @@ const HomeProjects = () => {
       tl.from(
         "[data-items]",
         {
-          y: 80,
+          scale: 0.8,
           opacity: 0,
           stagger: 0.2,
           duration: 1,
