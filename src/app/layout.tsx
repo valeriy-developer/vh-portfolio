@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import Main from "@/components/layout/Main";
 import { SmoothScroll } from "@/components/dynamic";
 import Providers from "@/providers";
+import ThemeRevealer from "@/components/ThemeRevealer";
 
 const bigShoulders = Big_Shoulders_Display({
   variable: "--font-big-shoulders",
@@ -45,6 +46,7 @@ export default function RootLayout({
               <Footer />
             </div>
           </SmoothScroll>
+          <ThemeRevealer />
         </Providers>
       </body>
     </html>
