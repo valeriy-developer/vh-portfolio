@@ -3,7 +3,10 @@ import React from "react";
 
 const SkillCard = ({ technology }: { technology: TechnologyItem }) => {
   return (
-    <li className="bg-accent text-primary mx-auto grid w-full grid-cols-[1fr_auto_min(78px)] items-center rounded-lg p-6 md:grid-cols-[1fr_auto_min(100px)] lg:grid-cols-[1fr_auto_min(118px)]">
+    <li
+      data-items
+      className="bg-accent text-primary mx-auto grid w-full grid-cols-[1fr_auto_min(78px)] items-center rounded-lg p-6 md:grid-cols-[1fr_auto_min(100px)] lg:grid-cols-[1fr_auto_min(118px)]"
+    >
       <div>
         <h3 className="text-xl font-bold md:text-2xl lg:text-[1.625rem] lg:leading-[1.1em]">
           {technology.label}

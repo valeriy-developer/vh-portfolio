@@ -2,22 +2,89 @@ import Container from "@/components/Container";
 import DividerNavLink from "@/components/DividerNavLink";
 import SkillCard from "@/components/SkillCard";
 import { technologies } from "@/data/technologies";
-import React from "react";
+import { SplitText, useGSAP, gsap } from "@/lib/gsap";
+import React, { useRef } from "react";
 
 const HomeAbout = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      const splitTitle = SplitText.create("[data-title]", {
+        type: "chars",
+        mask: "chars",
+      });
+      const splitText = SplitText.create("[data-text]", {
+        type: "lines",
+        mask: "lines",
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 85%",
+        },
+      });
+
+      tl.from(splitTitle.chars, {
+        y: 40,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.6,
+        ease: "power2.inOut",
+      });
+      tl.from(
+        "[data-line]",
+        {
+          scaleX: 0,
+          transformOrigin: "left",
+          duration: 0.8,
+          ease: "power2.inOut",
+        },
+        "<20%",
+      );
+      tl.from(
+        splitText.lines,
+        {
+          y: 40,
+          opacity: 0,
+          stagger: 0.08,
+          duration: 0.5,
+          ease: "power2.inOut",
+        },
+        "<",
+      );
+      tl.from(
+        "[data-items]",
+        {
+          y: 80,
+          opacity: 0,
+          stagger: 0.2,
+          duration: 1,
+          ease: "power2.inOut",
+        },
+        "<80%",
+      );
+    },
+    { scope: sectionRef },
+  );
+
   return (
-    <section className="pt-20 md:pt-37.5">
+    <section ref={sectionRef} className="pt-20 md:pt-37.5">
       <Container>
         <DividerNavLink label="About" url="/about" />
         <div className="mt-10 flex gap-6 max-md:flex-col md:mt-16 md:gap-17">
-          <p className="text-secondary-50 flex-1 text-lg md:text-xl lg:text-[1.375rem]">
+          <p
+            data-text
+            className="text-secondary-50 flex-1 text-lg md:text-xl lg:text-[1.375rem]"
+          >
             My passion lies in building performant and maintainable frontend
             architectures, applying modern frameworks and state management
             solutions to deliver scalable, reliable, and visually refined user
             interfaces.
           </p>
           <div className="flex-1 text-sm md:text-base lg:text-lg">
-            <p>
+            <p data-text>
               I have completed multiple advanced courses in JavaScript and React
               by Jonas Schmedtmann, as well as other development programs. This
               continuous learning path has strengthened my expertise in

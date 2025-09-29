@@ -3,7 +3,7 @@ import React from "react";
 
 const ProjectCard = ({ project }: { project: ProjectItem }) => {
   return (
-    <li className="group relative h-60 overflow-hidden lg:h-80">
+    <li data-items className="group relative h-60 overflow-hidden lg:h-80">
       <a href={project.url} rel="noopener noreferrer" target="_blank">
         <img
           src={project.img.url}

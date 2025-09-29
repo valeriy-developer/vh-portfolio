@@ -21,22 +21,26 @@ const TickerGroup = ({
     <div className={cn("relative flex flex-col gap-3", className)}>
       <div className="easing from-primary via-primary/90 pointer-events-none absolute top-0 -right-1 z-10 h-full w-20 bg-gradient-to-l to-transparent" />
       <div className="easing from-primary via-primary/90 pointer-events-none absolute top-0 -left-1 z-10 h-full w-20 bg-gradient-to-r to-transparent" />
-      <Marquee
-        direction={topDirection}
-        autoFill
-        speed={speed}
-        className="overflow-hidden!"
-      >
-        {children}
-      </Marquee>
-      <Marquee
-        direction={bottomDirection}
-        autoFill
-        speed={speed}
-        className="overflow-hidden!"
-      >
-        {children}
-      </Marquee>
+      <div data-left-ticker>
+        <Marquee
+          direction={topDirection}
+          autoFill
+          speed={speed}
+          className="overflow-hidden!"
+        >
+          {children}
+        </Marquee>
+      </div>
+      <div data-right-ticker>
+        <Marquee
+          direction={bottomDirection}
+          autoFill
+          speed={speed}
+          className="overflow-hidden!"
+        >
+          {children}
+        </Marquee>
+      </div>
     </div>
   );
 };

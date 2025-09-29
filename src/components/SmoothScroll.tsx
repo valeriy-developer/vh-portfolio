@@ -1,6 +1,6 @@
 "use client";
 
-import gsap from "gsap";
+import { gsap } from "@/lib/gsap";
 import ReactLenis, { LenisRef } from "lenis/react";
 import React, { useEffect, useRef } from "react";
 

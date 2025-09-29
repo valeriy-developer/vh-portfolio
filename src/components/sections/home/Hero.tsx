@@ -3,7 +3,7 @@ import Sparkle from "@/components/icons/Sparkle";
 import ScrollIndicator from "@/components/ScrollIndicator";
 import { useIsDesktop } from "@/hooks/useMediaQuery";
 import { cn } from "@/lib/utils";
-import gsap from "gsap";
+import { gsap } from "@/lib/gsap";
 import React, { useEffect, useRef } from "react";
 
 const HomeHero = () => {

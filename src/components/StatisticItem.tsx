@@ -10,6 +10,7 @@ interface Props {
 const StatisticItem = ({ statistic, className }: Props) => {
   return (
     <li
+      data-stat-items
       className={cn(
         "md:border-secondary/10 border-0 capitalize md:border-r [&:last-of-type]:border-0",
         className,

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Container from "./Container";
 import DividerNavLink from "./DividerNavLink";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
@@ -15,6 +15,8 @@ import {
 } from "@/lib/validation/contact-schema";
 import { cn } from "@/lib/utils";
 import { contacts } from "@/data/contacts";
+import { useGSAP, SplitText, gsap } from "@/lib/gsap";
+import { usePathname } from "next/navigation";
 
 const FormFieldInput = ({
   name,
@@ -40,6 +42,9 @@ const FormFieldInput = ({
 );
 
 const AppContact = () => {
+  const pathname = usePathname();
+  const sectionRef = useRef<HTMLElement>(null);
+
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: { name: "", email: "", message: "" },
@@ -54,18 +59,94 @@ const AppContact = () => {
     }
   };
 
+  useGSAP(
+    () => {
+      const splitTitle = SplitText.create("[data-title]", {
+        type: "chars",
+        mask: "chars",
+      });
+      const splitText = SplitText.create("[data-text]", {
+        type: "lines",
+        mask: "lines",
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 85%",
+        },
+      });
+
+      tl.from(splitTitle.chars, {
+        y: 40,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.6,
+        ease: "power2.inOut",
+      });
+      tl.from(
+        "[data-line]",
+        {
+          scaleX: 0,
+          transformOrigin: "left",
+          duration: 0.8,
+          ease: "power2.inOut",
+        },
+        "<20%",
+      );
+      tl.from(
+        splitText.lines,
+        {
+          y: 40,
+          opacity: 0,
+          stagger: 0.2,
+          duration: 1,
+          ease: "power2.inOut",
+        },
+        "<70%",
+      );
+      tl.from(
+        "[data-contacts]",
+        {
+          y: 30,
+          opacity: 0,
+          stagger: 0.2,
+          duration: 1,
+          ease: "power2.inOut",
+        },
+        "<40%",
+      );
+      tl.from(
+        "[data-form]",
+        {
+          opacity: 0,
+          duration: 1,
+          ease: "power2.inOut",
+        },
+        "<50%",
+      );
+    },
+    { scope: sectionRef, dependencies: [pathname] },
+  );
+
   return (
-    <section className="pt-20 pb-10 md:pt-37.5">
+    <section ref={sectionRef} className="pt-20 pb-10 md:pt-37.5">
       <Container>
         <DividerNavLink label="Contact" url="/contact" />
 
         <div className="mt-10 grid grid-cols-1 gap-10 md:mt-16 md:grid-cols-2 md:gap-17">
           <div>
-            <p className="text-lg max-md:max-w-[60%] max-sm:max-w-[100%] md:text-xl lg:text-[1.375rem]">
+            <p
+              data-text
+              className="text-lg max-md:max-w-[60%] max-sm:max-w-[100%] md:text-xl lg:text-[1.375rem]"
+            >
               I&rsquo;m open to exciting opportunities, collaborations, or just
               a chat about tech. Let&rsquo;s connect!
             </p>
-            <div className="mt-6 flex flex-col gap-1 text-sm md:mt-9.5 md:text-base lg:text-lg">
+            <div
+              data-contacts
+              className="mt-6 flex flex-col gap-1 text-sm md:mt-9.5 md:text-base lg:text-lg"
+            >
               {contacts
                 .filter(({ id }) =>
                   ["email", "location", "linkedin"].includes(id),
@@ -90,7 +171,11 @@ const AppContact = () => {
           </div>
 
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form
+              data-form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-6"
+            >
               <div className="flex w-full items-center gap-6">
                 <FormFieldInput
                   name="name"

@@ -10,11 +10,17 @@ interface Props {
 const CareerCard = ({ career, className }: Props) => {
   return (
     <li
-      className={cn(
-        "border-secondary/10 md:[&:nth-child(n+3)]:border-t md:[&:nth-child(n+3)]:pt-18",
-        className,
-      )}
+      data-items
+      className={cn("relative md:[&:nth-child(n+3)]:pt-18", className)}
     >
+      <span
+        data-card-line
+        className={cn(
+          "bg-secondary/10 pointer-events-none absolute top-0 left-0 h-px w-full",
+          "hidden md:[li:nth-child(n+3)_&]:block",
+        )}
+      />
+
       <h3 className="text-secondary text-xl font-semibold">{career.title}</h3>
 
       <div className="text-secondary/50 mt-2 flex flex-col font-medium">

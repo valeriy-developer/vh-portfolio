@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import gsap from "gsap";
+import { gsap } from "@/lib/gsap";
 import { useLenis } from "lenis/react";
 
 interface usePageTransitionAnimationReturn {
