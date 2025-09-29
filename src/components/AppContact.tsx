@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { RefObject } from "react";
 import Container from "./Container";
 import DividerNavLink from "./DividerNavLink";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
@@ -15,8 +15,10 @@ import {
 } from "@/lib/validation/contact-schema";
 import { cn } from "@/lib/utils";
 import { contacts } from "@/data/contacts";
-import { useGSAP, SplitText, gsap } from "@/lib/gsap";
-import { usePathname } from "next/navigation";
+
+interface Props {
+  triggerRef?: RefObject<HTMLElement | null>;
+}
 
 const FormFieldInput = ({
   name,
@@ -41,10 +43,7 @@ const FormFieldInput = ({
   />
 );
 
-const AppContact = () => {
-  const pathname = usePathname();
-  const sectionRef = useRef<HTMLElement>(null);
-
+const AppContact = ({ triggerRef }: Props) => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: { name: "", email: "", message: "" },
@@ -59,78 +58,8 @@ const AppContact = () => {
     }
   };
 
-  useGSAP(
-    () => {
-      const splitTitle = SplitText.create("[data-title]", {
-        type: "chars",
-        mask: "chars",
-      });
-      const splitText = SplitText.create("[data-text]", {
-        type: "lines",
-        mask: "lines",
-      });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 85%",
-        },
-      });
-
-      tl.from(splitTitle.chars, {
-        y: 40,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.6,
-        ease: "power2.inOut",
-      });
-      tl.from(
-        "[data-line]",
-        {
-          scaleX: 0,
-          transformOrigin: "left",
-          duration: 0.8,
-          ease: "power2.inOut",
-        },
-        "<20%",
-      );
-      tl.from(
-        splitText.lines,
-        {
-          y: 40,
-          opacity: 0,
-          stagger: 0.2,
-          duration: 1,
-          ease: "power2.inOut",
-        },
-        "<70%",
-      );
-      tl.from(
-        "[data-contacts]",
-        {
-          y: 30,
-          opacity: 0,
-          stagger: 0.2,
-          duration: 1,
-          ease: "power2.inOut",
-        },
-        "<40%",
-      );
-      tl.from(
-        "[data-form]",
-        {
-          opacity: 0,
-          duration: 1,
-          ease: "power2.inOut",
-        },
-        "<50%",
-      );
-    },
-    { scope: sectionRef, dependencies: [pathname] },
-  );
-
   return (
-    <section ref={sectionRef} className="pt-20 pb-10 md:pt-37.5">
+    <section ref={triggerRef} className="pt-20 pb-10 md:pt-37.5">
       <Container>
         <DividerNavLink label="Contact" url="/contact" />
 
