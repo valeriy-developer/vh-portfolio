@@ -1,6 +1,6 @@
 "use client";
 
-import React, { RefObject } from "react";
+import React from "react";
 import Container from "./Container";
 import DividerNavLink from "./DividerNavLink";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
@@ -15,10 +15,6 @@ import {
 } from "@/lib/validation/contact-schema";
 import { cn } from "@/lib/utils";
 import { contacts } from "@/data/contacts";
-
-interface Props {
-  triggerRef?: RefObject<HTMLElement | null>;
-}
 
 const FormFieldInput = ({
   name,
@@ -43,7 +39,7 @@ const FormFieldInput = ({
   />
 );
 
-const AppContact = ({ triggerRef }: Props) => {
+const AppContact = () => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: { name: "", email: "", message: "" },
@@ -59,7 +55,7 @@ const AppContact = ({ triggerRef }: Props) => {
   };
 
   return (
-    <section ref={triggerRef} className="pt-20 pb-10 md:pt-37.5">
+    <section className="pt-20 pb-10 md:pt-37.5">
       <Container>
         <DividerNavLink label="Contact" url="/contact" />
 

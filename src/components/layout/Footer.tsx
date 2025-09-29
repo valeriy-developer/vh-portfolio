@@ -93,7 +93,7 @@ const Footer = () => {
 
   return (
     <footer ref={footerRef} className="flex flex-col gap-6 md:gap-10">
-      <AppContact triggerRef={footerRef} />
+      <AppContact />
 
       <div data-ticker>
         <Marquee
