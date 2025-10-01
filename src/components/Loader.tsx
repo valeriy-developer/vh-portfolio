@@ -65,8 +65,7 @@ const Loader = () => {
         </span>
         <div
           ref={lineRef}
-          className="bg-secondary mr-auto h-[2px] w-full max-w-0"
-          style={{ transition: "max-width 0.1s linear" }}
+          className="bg-secondary mr-auto h-[2px] w-full max-w-0 transition-[max-width] duration-100 ease-linear"
         />
       </Container>
     </div>
