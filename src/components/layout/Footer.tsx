@@ -56,7 +56,7 @@ const Footer = () => {
           duration: 1,
           ease: "power2.inOut",
         },
-        "<70%",
+        "<",
       );
       tl.from(
         "[data-contacts]",
