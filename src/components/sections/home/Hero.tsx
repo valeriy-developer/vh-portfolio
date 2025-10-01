@@ -1,76 +1,89 @@
+"use client";
+
 import Container from "@/components/Container";
 import Sparkle from "@/components/icons/Sparkle";
 import ScrollIndicator from "@/components/ScrollIndicator";
 import { useIsDesktop } from "@/hooks/useMediaQuery";
 import { cn } from "@/lib/utils";
 import { gsap, useGSAP, SplitText } from "@/lib/gsap";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
+import { useLoader } from "@/providers/LoaderProvider";
+import { useLenis } from "lenis/react";
 
 const HomeHero = () => {
   const isDesktop = useIsDesktop();
-  const imgRef = useRef<HTMLImageElement | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const { isLoading } = useLoader();
+  const lenis = useLenis();
+
   const sectionRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const imgRef = useRef<HTMLImageElement | null>(null);
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
   useGSAP(
     () => {
-      if (imgRef.current) {
-        gsap.set(imgRef.current, { xPercent: -50, yPercent: -50 });
-      }
-
-      const splitTitle = SplitText.create("[data-title]", {
-        type: "chars",
-      });
+      const splitTitle = SplitText.create("[data-title]", { type: "chars" });
       const splitDesc = SplitText.create("[data-description]", {
         type: "lines",
         mask: "lines",
       });
 
-      const tl = gsap.timeline();
+      gsap.set(splitTitle.chars, { y: 40, opacity: 0 });
+      gsap.set(splitDesc.lines, { scale: 0.6, opacity: 0 });
+      gsap.set(["[data-text]"], { y: 40, opacity: 0 });
+      gsap.set(["[data-image]", "[data-sparkle]"], { scale: 0.6, opacity: 0 });
+      gsap.set(["[data-indicator]"], { opacity: 0 });
 
-      tl.from("[data-text]", {
-        y: 40,
-        opacity: 0,
+      if (imgRef.current) {
+        gsap.set(imgRef.current, { xPercent: -50, yPercent: -50 });
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      timelineRef.current = tl;
+
+      tl.to("[data-text]", {
+        y: 0,
+        opacity: 1,
         duration: 0.6,
         ease: "power2.inOut",
       });
-      tl.from(
+      tl.to(
         splitTitle.chars,
         {
-          y: 40,
-          opacity: 0,
+          y: 0,
+          opacity: 1,
           stagger: 0.08,
           duration: 0.6,
           ease: "power2.inOut",
         },
         "<30%",
       );
-      tl.from(
+      tl.to(
         "[data-sparkle]",
         {
-          scale: 0.6,
-          opacity: 0,
+          scale: 1,
+          opacity: 1,
           duration: 0.8,
           ease: "power2.inOut",
         },
         "<80%",
       );
-      tl.from(
+      tl.to(
         splitDesc.lines,
         {
-          scale: 0.6,
-          opacity: 0,
+          scale: 1,
+          opacity: 1,
           stagger: 0.15,
           duration: 0.8,
           ease: "power2.inOut",
         },
         "<50%",
       );
-      tl.from(
+      tl.to(
         "[data-image]",
         {
-          scale: 0.6,
-          opacity: 0,
+          scale: 1,
+          opacity: 1,
           duration: 0.8,
           ease: "power2.inOut",
           onComplete: () => {
@@ -79,19 +92,14 @@ const HomeHero = () => {
 
             if (!img || !container) return;
 
-            let centerX = 0;
-            let centerY = 0;
-            const updateCenter = () => {
-              const rect = container.getBoundingClientRect();
-              centerX = rect.left + rect.width / 2;
-              centerY = rect.top + rect.height / 2;
-            };
-            updateCenter();
-
             container.addEventListener("mousemove", (e) => {
+              const rect = container.getBoundingClientRect();
+              const x = e.clientX - rect.left - rect.width / 2;
+              const y = e.clientY - rect.top - rect.height / 2;
+
               gsap.to(img, {
-                x: -(e.clientX - centerX) / 20,
-                y: -(e.clientY - centerY) / 20,
+                x: -x / 20,
+                y: -y / 20,
                 scale: 0.95,
                 duration: 0.3,
                 ease: "power2.out",
@@ -111,18 +119,31 @@ const HomeHero = () => {
         },
         "<30%",
       );
-      tl.from(
+      tl.to(
         "[data-indicator]",
         {
-          opacity: 0,
+          opacity: 1,
           duration: 0.8,
           ease: "power2.inOut",
         },
         "<50%",
       );
+
+      if (!isLoading) tl.play();
     },
     { scope: sectionRef },
   );
+
+  useEffect(() => {
+    if (!lenis) return;
+
+    if (isLoading) {
+      lenis.stop();
+    } else {
+      lenis.start();
+      timelineRef.current?.play(0);
+    }
+  }, [isLoading, lenis]);
 
   return (
     <section ref={sectionRef}>

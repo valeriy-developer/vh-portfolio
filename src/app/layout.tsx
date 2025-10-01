@@ -8,6 +8,7 @@ import Main from "@/components/layout/Main";
 import { SmoothScroll } from "@/components/dynamic";
 import Providers from "@/providers";
 import ThemeRevealer from "@/components/ThemeRevealer";
+import Loader from "@/components/Loader";
 
 const bigShoulders = Big_Shoulders_Display({
   variable: "--font-big-shoulders",
@@ -39,6 +40,7 @@ export default function RootLayout({
         )}
       >
         <Providers>
+          <Loader />
           <SmoothScroll>
             <div id="app" className="flex min-h-dvh flex-col">
               <Header />

@@ -1,15 +1,22 @@
+"use client";
+
 import Container from "@/components/Container";
 import DividerNavLink from "@/components/DividerNavLink";
 import SkillCard from "@/components/SkillCard";
 import { technologies } from "@/data/technologies";
 import { SplitText, useGSAP, gsap } from "@/lib/gsap";
+import { useLoader } from "@/providers/LoaderProvider";
 import React, { useRef } from "react";
 
 const HomeAbout = () => {
+  const { isLoading } = useLoader();
+
   const sectionRef = useRef<HTMLElement>(null);
 
   useGSAP(
     () => {
+      if (isLoading) return;
+
       const splitTitle = SplitText.create("[data-title]", {
         type: "chars",
         mask: "chars",
@@ -19,6 +26,10 @@ const HomeAbout = () => {
         mask: "lines",
       });
 
+      gsap.set([splitTitle.chars, splitText.lines], { y: 40, opacity: 0 });
+      gsap.set("[data-line]", { scaleX: 0, transformOrigin: "left" });
+      gsap.set("[data-items]", { y: 80, opacity: 0 });
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -26,47 +37,36 @@ const HomeAbout = () => {
         },
       });
 
-      tl.from(splitTitle.chars, {
-        y: 40,
-        opacity: 0,
+      tl.to(splitTitle.chars, {
+        y: 0,
+        opacity: 1,
         stagger: 0.1,
         duration: 0.6,
         ease: "power2.inOut",
       });
-      tl.from(
+      tl.to(
         "[data-line]",
-        {
-          scaleX: 0,
-          transformOrigin: "left",
-          duration: 0.8,
-          ease: "power2.inOut",
-        },
+        { scaleX: 1, duration: 0.8, ease: "power2.inOut" },
         "<20%",
       );
-      tl.from(
+      tl.to(
         splitText.lines,
         {
-          y: 40,
-          opacity: 0,
+          y: 0,
+          opacity: 1,
           stagger: 0.08,
           duration: 0.5,
           ease: "power2.inOut",
         },
         "<",
       );
-      tl.from(
+      tl.to(
         "[data-items]",
-        {
-          y: 80,
-          opacity: 0,
-          stagger: 0.2,
-          duration: 1,
-          ease: "power2.inOut",
-        },
+        { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" },
         "<80%",
       );
     },
-    { scope: sectionRef },
+    { scope: sectionRef, dependencies: [isLoading] },
   );
 
   return (

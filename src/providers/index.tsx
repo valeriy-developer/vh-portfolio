@@ -3,6 +3,7 @@
 import { PageTransitionProvider, ThemeProvider } from "@/components/dynamic";
 import { ReactNode } from "react";
 import { HeaderProvider } from "./HeaderProvider";
+import { LoaderProvider } from "./LoaderProvider";
 
 interface Props {
   children: ReactNode;
@@ -11,9 +12,11 @@ interface Props {
 const Providers = ({ children }: Props) => {
   return (
     <ThemeProvider>
-      <PageTransitionProvider>
-        <HeaderProvider>{children}</HeaderProvider>
-      </PageTransitionProvider>
+      <LoaderProvider>
+        <PageTransitionProvider>
+          <HeaderProvider>{children}</HeaderProvider>
+        </PageTransitionProvider>
+      </LoaderProvider>
     </ThemeProvider>
   );
 };
