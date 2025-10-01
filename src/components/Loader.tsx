@@ -4,60 +4,71 @@ import { useGSAP, gsap } from "@/lib/gsap";
 import React, { useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useLoader } from "@/providers/LoaderProvider";
+import Container from "./Container";
 
 const Loader = () => {
   const { isLoading, setIsLoading } = useLoader();
 
   const loaderRef = useRef<HTMLDivElement | null>(null);
   const counterRef = useRef<HTMLSpanElement | null>(null);
+  const lineRef = useRef<HTMLDivElement | null>(null);
 
-  useGSAP(() => {
-    const counterObj = { val: 0 };
+  useGSAP(
+    () => {
+      if (
+        !isLoading ||
+        !loaderRef.current ||
+        !counterRef.current ||
+        !lineRef.current
+      )
+        return;
 
-    const tl = gsap.timeline({
-      onComplete: () => {
-        setIsLoading(false);
-      },
-    });
+      const counterObj = { val: 0 };
 
-    tl.to(counterObj, {
-      val: 100,
-      duration: 2,
-      ease: "power2.out",
-      onUpdate: () => {
-        if (counterRef.current) {
-          counterRef.current.textContent = Math.round(counterObj.val) + "%";
-        }
-      },
-    });
+      const tl = gsap.timeline({
+        onComplete: () => setIsLoading(false),
+      });
 
-    tl.to(
-      loaderRef.current!,
-      {
+      tl.to(counterObj, {
+        val: 100,
+        duration: 2,
+        ease: "power2.out",
+        onUpdate: () => {
+          const val = Math.round(counterObj.val);
+          counterRef.current!.textContent = val + "%";
+          lineRef.current!.style.maxWidth = `${val}%`;
+        },
+      });
+      tl.to(loaderRef.current, {
         opacity: 0,
-        yPercent: -100,
+        pointerEvents: "none",
         duration: 1,
         ease: "power3.inOut",
-      },
-      "+=0.3",
-    );
-  });
+      });
+    },
+    { dependencies: [isLoading] },
+  );
 
   if (!isLoading) return null;
 
   return (
     <div
       ref={loaderRef}
-      className={cn(
-        "bg-primary text-secondary fixed inset-0 z-[9999] flex items-center justify-center",
-      )}
+      className={cn("bg-primary text-secondary fixed inset-0 z-[9999] pb-10")}
     >
-      <span
-        ref={counterRef}
-        className="font-big-shoulders text-5xl tracking-wider md:text-7xl"
-      >
-        0%
-      </span>
+      <Container className="flex h-full flex-col items-end justify-end gap-4">
+        <span
+          ref={counterRef}
+          className="font-big-shoulders text-5xl tracking-wider md:text-7xl"
+        >
+          0%
+        </span>
+        <div
+          ref={lineRef}
+          className="bg-secondary mr-auto h-[2px] w-full max-w-0"
+          style={{ transition: "max-width 0.1s linear" }}
+        />
+      </Container>
     </div>
   );
 };
