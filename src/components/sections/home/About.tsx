@@ -6,16 +6,17 @@ import SkillCard from "@/components/SkillCard";
 import { technologies } from "@/data/technologies";
 import { SplitText, useGSAP, gsap } from "@/lib/gsap";
 import { useLoader } from "@/providers/LoaderProvider";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 const HomeAbout = () => {
   const { isLoading } = useLoader();
 
   const sectionRef = useRef<HTMLElement>(null);
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
   useGSAP(
     () => {
-      if (isLoading) return;
+      // if (isLoading) return;
 
       const splitTitle = SplitText.create("[data-title]", {
         type: "chars",
@@ -33,9 +34,10 @@ const HomeAbout = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 85%",
+          start: "top 70%",
         },
       });
+      timelineRef.current = tl;
 
       tl.to(splitTitle.chars, {
         y: 0,
@@ -65,9 +67,15 @@ const HomeAbout = () => {
         { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" },
         "<80%",
       );
+
+      if (!isLoading) tl.play();
     },
-    { scope: sectionRef, dependencies: [isLoading] },
+    { scope: sectionRef },
   );
+
+  useEffect(() => {
+    if (!isLoading) timelineRef.current?.play(0);
+  }, [isLoading]);
 
   return (
     <section ref={sectionRef} className="pt-20 md:pt-37.5">

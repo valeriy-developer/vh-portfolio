@@ -76,7 +76,7 @@ const Footer = () => {
           duration: 1,
           ease: "power2.inOut",
         },
-        "<50%",
+        "<20%",
       );
       tl.from(
         "[data-ticker]",

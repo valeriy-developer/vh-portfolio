@@ -52,7 +52,7 @@ const HomeHero = () => {
         {
           y: 0,
           opacity: 1,
-          stagger: 0.08,
+          stagger: 0.06,
           duration: 0.6,
           ease: "power2.inOut",
         },
@@ -66,7 +66,7 @@ const HomeHero = () => {
           duration: 0.8,
           ease: "power2.inOut",
         },
-        "<80%",
+        "<50%",
       );
       tl.to(
         splitDesc.lines,
@@ -77,7 +77,7 @@ const HomeHero = () => {
           duration: 0.8,
           ease: "power2.inOut",
         },
-        "<50%",
+        "<",
       );
       tl.to(
         "[data-image]",
@@ -117,7 +117,7 @@ const HomeHero = () => {
             });
           },
         },
-        "<30%",
+        "<40%",
       );
       tl.to(
         "[data-indicator]",
@@ -126,7 +126,7 @@ const HomeHero = () => {
           duration: 0.8,
           ease: "power2.inOut",
         },
-        "<50%",
+        "<",
       );
 
       if (!isLoading) tl.play();
