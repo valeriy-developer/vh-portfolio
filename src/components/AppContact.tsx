@@ -46,11 +46,25 @@ const AppContact = () => {
     mode: "onChange",
   });
 
-  const onSubmit = (values: ContactFormValues) => {
+  const onSubmit = async (values: ContactFormValues) => {
     try {
-      console.log("Form submitted:", values);
+      const response = await fetch("https://formspree.io/f/mnngvgdd", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        console.log("Message sent successfully");
+        form.reset();
+      } else {
+        console.error("Failed to send message");
+      }
     } catch (error) {
-      console.error("Failed to submit:", error);
+      console.error("Error:", error);
     }
   };
 
