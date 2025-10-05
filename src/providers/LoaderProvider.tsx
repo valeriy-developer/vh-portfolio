@@ -20,9 +20,11 @@ export const LoaderProvider = ({ children }: { children: React.ReactNode }) => {
 };
 
 export const useLoader = () => {
-  const ctx = useContext(LoaderContext);
-  if (!ctx) {
+  const context = useContext(LoaderContext);
+
+  if (!context) {
     throw new Error("useLoader must be used inside LoaderProvider");
   }
-  return ctx;
+
+  return context;
 };

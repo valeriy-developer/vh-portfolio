@@ -3,44 +3,58 @@
 import React from "react";
 import Container from "./Container";
 import DividerNavLink from "./DividerNavLink";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Control, useForm } from "react-hook-form";
 import { Textarea } from "./ui/textarea";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import {
   contactFormSchema,
   ContactFormValues,
 } from "@/lib/validation/contact-schema";
 import { cn } from "@/lib/utils";
 import { contacts } from "@/data/contacts";
+import { useModal } from "@/providers/ModalsProvider";
+import { toast } from "sonner";
 
-const FormFieldInput = ({
+const Field = ({
+  as: Component = Input,
   name,
   placeholder,
-  control,
+  register,
+  errors,
+  className,
 }: {
+  as?: typeof Input | typeof Textarea;
   name: keyof ContactFormValues;
   placeholder: string;
-  control: Control<ContactFormValues>;
+  register: ReturnType<typeof useForm<ContactFormValues>>["register"];
+  errors: Record<string, any>;
+  className?: string;
 }) => (
-  <FormField
-    control={control}
-    name={name}
-    render={({ field }) => (
-      <FormItem>
-        <FormControl>
-          <Input placeholder={placeholder} {...field} />
-        </FormControl>
-        <FormMessage />
-      </FormItem>
+  <div className="relative w-full">
+    <Component
+      placeholder={placeholder}
+      {...register(name)}
+      className={className}
+    />
+    {errors[name] && (
+      <p className="absolute -bottom-4.5 text-xs text-red-500">
+        {errors[name]?.message}
+      </p>
     )}
-  />
+  </div>
 );
 
 const AppContact = () => {
-  const form = useForm<ContactFormValues>({
+  const { openModal } = useModal();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting, isValid },
+    reset,
+  } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: { name: "", email: "", message: "" },
     mode: "onChange",
@@ -58,12 +72,13 @@ const AppContact = () => {
       });
 
       if (response.ok) {
-        console.log("Message sent successfully");
-        form.reset();
+        openModal("submit");
+        reset();
       } else {
-        console.error("Failed to send message");
+        toast.error("Failed to send message. Please try again.");
       }
     } catch (error) {
+      toast.error("An error occurred. Please try again later.");
       console.error("Error:", error);
     }
   };
@@ -82,6 +97,7 @@ const AppContact = () => {
               I&rsquo;m open to exciting opportunities, collaborations, or just
               a chat about tech. Let&rsquo;s connect!
             </p>
+
             <div
               data-contacts
               className="mt-6 flex flex-col gap-1 text-sm md:mt-9.5 md:text-base lg:text-lg"
@@ -109,54 +125,44 @@ const AppContact = () => {
             </div>
           </div>
 
-          <Form {...form}>
-            <form
-              data-form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-6"
-            >
-              <div className="flex w-full items-center gap-6">
-                <FormFieldInput
-                  name="name"
-                  placeholder="Name"
-                  control={form.control}
-                />
-                <FormFieldInput
-                  name="email"
-                  placeholder="Email"
-                  control={form.control}
-                />
-              </div>
-
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Message..."
-                        className="h-38"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
+          <form
+            data-form
+            onSubmit={handleSubmit(onSubmit)}
+            className="space-y-6"
+          >
+            <div className="flex w-full items-center gap-6">
+              <Field
+                name="name"
+                placeholder="Name"
+                register={register}
+                errors={errors}
               />
+              <Field
+                name="email"
+                placeholder="Email"
+                register={register}
+                errors={errors}
+              />
+            </div>
 
-              <Button
-                type="submit"
-                aria-label="Send message"
-                disabled={
-                  form.formState.isSubmitting || !form.formState.isValid
-                }
-                className="h-auto w-full py-3"
-              >
-                Send
-              </Button>
-            </form>
-          </Form>
+            <Field
+              as={Textarea}
+              name="message"
+              placeholder="Message..."
+              register={register}
+              errors={errors}
+              className="h-38"
+            />
+
+            <Button
+              type="submit"
+              aria-label="Send message"
+              disabled={isSubmitting || !isValid}
+              className="h-auto w-full py-3"
+            >
+              Send
+            </Button>
+          </form>
         </div>
       </Container>
     </section>
