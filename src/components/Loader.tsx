@@ -1,13 +1,15 @@
 "use client";
 
 import { useGSAP, gsap } from "@/lib/gsap";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useLoader } from "@/providers/LoaderProvider";
 import Container from "./Container";
+import { useLenis } from "lenis/react";
 
 const Loader = () => {
   const { isLoading, setIsLoading } = useLoader();
+  const lenis = useLenis();
 
   const loaderRef = useRef<HTMLDivElement | null>(null);
   const counterRef = useRef<HTMLSpanElement | null>(null);
@@ -26,7 +28,10 @@ const Loader = () => {
       const counterObj = { val: 0 };
 
       const tl = gsap.timeline({
-        onComplete: () => setIsLoading(false),
+        onComplete: () => {
+          lenis?.scrollTo(0, { immediate: true });
+          setIsLoading(false);
+        },
       });
 
       tl.to(counterObj, {
@@ -48,6 +53,16 @@ const Loader = () => {
     },
     { dependencies: [isLoading] },
   );
+
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+      lenis?.stop();
+    } else {
+      document.body.style.overflow = "";
+      lenis?.start();
+    }
+  }, [isLoading, lenis]);
 
   if (!isLoading) return null;
 
