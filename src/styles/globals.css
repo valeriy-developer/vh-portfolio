@@ -61,7 +61,7 @@ body {
 }
 
 :root {
-  --accent: oklch(0.5873 0.207 267.3);
+  --accent: oklch(0.46 0.207 267.3);
   --primary: oklch(0.947 0.007 284.9);
   --primary-50: oklch(0.947 0.007 284.9 / 0.5);
   --primary-30: oklch(0.947 0.007 284.9 / 0.3);
