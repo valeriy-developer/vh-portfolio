@@ -8,12 +8,10 @@ import { cn } from "@/lib/utils";
 import { gsap, useGSAP, SplitText } from "@/lib/gsap";
 import React, { useEffect, useRef } from "react";
 import { useLoader } from "@/providers/LoaderProvider";
-import { useLenis } from "lenis/react";
 
 const HomeHero = () => {
   const isDesktop = useIsDesktop();
   const { isLoading } = useLoader();
-  const lenis = useLenis();
 
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -133,15 +131,8 @@ const HomeHero = () => {
   );
 
   useEffect(() => {
-    if (!lenis) return;
-
-    if (isLoading) {
-      lenis.stop();
-    } else {
-      lenis.start();
-      timelineRef.current?.play(0);
-    }
-  }, [isLoading, lenis]);
+    if (!isLoading) timelineRef.current?.play(0);
+  }, [isLoading]);
 
   return (
     <section ref={sectionRef}>

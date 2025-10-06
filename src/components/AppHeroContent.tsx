@@ -44,7 +44,7 @@ const AppHeroContent = ({ title, className }: Props) => {
         "<50%",
       );
     },
-    { scope: sectionRef, dependencies: [pathname] },
+    { scope: sectionRef, dependencies: [pathname], revertOnUpdate: true },
   );
 
   return (
