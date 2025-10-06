@@ -1,11 +1,15 @@
 "use client";
 
-export default function Home() {
+import { homePageSections } from "@/config/sections.config";
+
+const HomePage = () => {
   return (
-    <div>
-      <header>Header</header>
-      <main>Main</main>
-      <footer>Footer</footer>
-    </div>
+    <>
+      {homePageSections.map(({ id, component: Component }) => (
+        <Component key={id} />
+      ))}
+    </>
   );
-}
+};
+
+export default HomePage;

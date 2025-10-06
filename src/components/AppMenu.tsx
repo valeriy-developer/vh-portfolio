@@ -1,0 +1,61 @@
+"use client";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import Navigation from "./Navigation";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
+import { useHeader } from "@/providers/HeaderProvider";
+
+const AppMenu = () => {
+  const [isOpened, setIsOpened] = useState(false);
+  const { isVisible } = useHeader();
+
+  useEffect(() => {
+    setIsOpened(false);
+  }, [isVisible]);
+
+  return (
+    <DropdownMenu open={isOpened} onOpenChange={setIsOpened}>
+      <DropdownMenuTrigger asChild>
+        <button
+          type="button"
+          className={cn(
+            "group relative flex h-5 w-7.5 cursor-pointer items-center justify-start",
+          )}
+        >
+          <span
+            className={cn(
+              "bg-secondary transition-[background-color, transform] absolute h-0.5 w-full duration-300 ease-in group-hover:w-[75%]",
+              isOpened ? "w-full rotate-45" : "-translate-y-2",
+            )}
+          />
+          <span
+            className={cn(
+              "bg-secondary transition-[background-color, transform] absolute h-0.5 w-[50%] duration-300 ease-in group-hover:w-full",
+              isOpened ? "w-full opacity-0" : "opacity-100",
+            )}
+          />
+          <span
+            className={cn(
+              "bg-secondary transition-[background-color, transform] absolute h-0.5 w-[75%] duration-300 ease-in group-hover:w-[50%]",
+              isOpened ? "w-full -rotate-45" : "translate-y-2",
+            )}
+          />
+        </button>
+      </DropdownMenuTrigger>
+
+      <DropdownMenuContent align="start" className="pl-1">
+        <DropdownMenuGroup>
+          <Navigation handleDropdown={setIsOpened} />
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
+
+export default AppMenu;
