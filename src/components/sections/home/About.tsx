@@ -16,8 +16,6 @@ const HomeAbout = () => {
 
   useGSAP(
     () => {
-      // if (isLoading) return;
-
       const splitTitle = SplitText.create("[data-title]", {
         type: "chars",
         mask: "chars",
@@ -32,6 +30,7 @@ const HomeAbout = () => {
       gsap.set("[data-items]", { y: 80, opacity: 0 });
 
       const tl = gsap.timeline({
+        paused: true,
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 70%",
@@ -67,8 +66,6 @@ const HomeAbout = () => {
         { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" },
         "<80%",
       );
-
-      if (!isLoading) tl.play();
     },
     { scope: sectionRef },
   );

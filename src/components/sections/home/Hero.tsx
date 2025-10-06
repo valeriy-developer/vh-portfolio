@@ -128,8 +128,6 @@ const HomeHero = () => {
         },
         "<",
       );
-
-      if (!isLoading) tl.play();
     },
     { scope: sectionRef },
   );
