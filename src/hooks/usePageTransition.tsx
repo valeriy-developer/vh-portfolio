@@ -2,7 +2,7 @@
 
 import { RefObject, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { gsap, useGSAP } from "@/lib/gsap";
+import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 import { useLenis } from "lenis/react";
 
 interface usePageTransitionAnimationReturn {
@@ -39,6 +39,7 @@ export const usePageTransitionAnimation =
           transformOrigin: "right",
           onComplete: () => {
             setIsAnimate(false);
+            ScrollTrigger.refresh();
             lenis?.start();
           },
         });
