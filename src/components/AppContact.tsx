@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Container from "./Container";
 import DividerNavLink from "./DividerNavLink";
 import { Input } from "./ui/input";
@@ -16,6 +16,8 @@ import { cn } from "@/lib/utils";
 import { contacts } from "@/data/contacts";
 import { useModal } from "@/providers/ModalsProvider";
 import { toast } from "sonner";
+import { usePathname } from "next/navigation";
+import { gsap, useGSAP, SplitText } from "@/lib/gsap";
 
 const Field = ({
   as: Component = Input,
@@ -48,6 +50,9 @@ const Field = ({
 
 const AppContact = () => {
   const { openModal } = useModal();
+  const pathname = usePathname();
+
+  const contactsRef = useRef<HTMLDivElement>(null);
 
   const {
     register,
@@ -83,8 +88,78 @@ const AppContact = () => {
     }
   };
 
+  useGSAP(
+    () => {
+      const splitTitle = SplitText.create("[data-title]", {
+        type: "chars",
+        mask: "chars",
+      });
+      const splitText = SplitText.create("[data-text]", {
+        type: "lines",
+        mask: "lines",
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: contactsRef.current,
+          start: "top 85%",
+        },
+      });
+
+      tl.from(splitTitle.chars, {
+        y: 40,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.6,
+        ease: "power2.inOut",
+      });
+      tl.from(
+        "[data-line]",
+        {
+          scaleX: 0,
+          transformOrigin: "left",
+          duration: 0.8,
+          ease: "power2.inOut",
+        },
+        "<20%",
+      );
+      tl.from(
+        splitText.lines,
+        {
+          y: 40,
+          opacity: 0,
+          stagger: 0.2,
+          duration: 1,
+          ease: "power2.inOut",
+        },
+        "<",
+      );
+      tl.from(
+        "[data-contacts]",
+        {
+          y: 30,
+          opacity: 0,
+          stagger: 0.2,
+          duration: 1,
+          ease: "power2.inOut",
+        },
+        "<40%",
+      );
+      tl.from(
+        "[data-form]",
+        {
+          opacity: 0,
+          duration: 1,
+          ease: "power2.inOut",
+        },
+        "<20%",
+      );
+    },
+    { scope: contactsRef, dependencies: [pathname] },
+  );
+
   return (
-    <section className="pt-20 pb-10 md:pt-37.5">
+    <div ref={contactsRef} className="pt-20 pb-10 md:pt-37.5">
       <Container>
         <DividerNavLink label="Contact" url="/contact" />
 
@@ -165,7 +240,7 @@ const AppContact = () => {
           </form>
         </div>
       </Container>
-    </section>
+    </div>
   );
 };
 
