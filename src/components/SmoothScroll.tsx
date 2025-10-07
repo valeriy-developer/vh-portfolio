@@ -23,7 +23,7 @@ const SmoothScroll = ({
     gsap.ticker.lagSmoothing(0);
 
     return () => gsap.ticker.remove(update);
-  }, []);
+  }, [lenis]);
 
   return (
     <ReactLenis ref={lenisRef} root options={{ autoRaf: false, lerp: 0.06 }}>
