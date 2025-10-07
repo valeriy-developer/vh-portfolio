@@ -7,10 +7,12 @@ import { contacts } from "@/data/contacts";
 import Sparkle from "../icons/Sparkle";
 import { useGSAP, gsap, SplitText } from "@/lib/gsap";
 import { usePathname } from "next/navigation";
+import { useIsDesktop } from "@/hooks/useMediaQuery";
 
 const Footer = () => {
   const footerRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
+  const isDesktop = useIsDesktop();
 
   useGSAP(
     () => {
@@ -99,7 +101,7 @@ const Footer = () => {
         <Marquee
           speed={120}
           autoFill
-          pauseOnHover
+          pauseOnHover={isDesktop}
           className="overflow-y-hidden"
         >
           <div className="mr-14 flex items-center gap-14 md:mr-18 md:gap-18">
