@@ -53,6 +53,11 @@ const HomeHero = () => {
           stagger: 0.06,
           duration: 0.6,
           ease: "power2.inOut",
+          // onComplete: () => {
+          //   requestAnimationFrame(() => {
+          //     splitTitle.revert();
+          //   });
+          // },
         },
         "<30%",
       );
@@ -146,7 +151,7 @@ const HomeHero = () => {
         <div ref={containerRef} className="relative mt-3 lg:mt-2.5">
           <h1
             data-title
-            className="font-big-shoulders text-accent easing-text text-6xl leading-[1em] font-black tracking-[-0.02em] uppercase md:text-9xl lg:text-[12.5rem]"
+            className="font-big-shoulders text-accent easing-text text-[clamp(3rem,12vw,12.5rem)] leading-[1em] font-black tracking-[-0.02em] uppercase"
           >
             Valeriy <br /> Hnybidenko
           </h1>
@@ -154,7 +159,8 @@ const HomeHero = () => {
             data-image
             ref={imgRef}
             className={cn(
-              "pointer-events-none absolute top-1/2 left-1/2 hidden rounded-full object-cover md:block md:h-42 md:w-28 lg:h-64 lg:w-40",
+              "pointer-events-none absolute top-1/2 left-1/2 hidden rounded-full object-cover md:block",
+              "h-[clamp(8rem,16vw,16rem)] w-[clamp(5rem,10vw,10rem)]",
               !isDesktop && "vertical-img-animation",
             )}
             src="/images/vh-photo.png"

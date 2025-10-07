@@ -16,6 +16,7 @@ import { cn } from "@/lib/utils";
 import { contacts } from "@/data/contacts";
 import { useModal } from "@/providers/ModalsProvider";
 import { toast } from "sonner";
+import { usePathname } from "next/navigation";
 
 const Field = ({
   as: Component = Input,
@@ -48,6 +49,9 @@ const Field = ({
 
 const AppContact = () => {
   const { openModal } = useModal();
+  const pathname = usePathname();
+
+  const isContacts = pathname.includes("contact");
 
   const {
     register,
@@ -86,9 +90,14 @@ const AppContact = () => {
   return (
     <div className="pt-20 pb-10 md:pt-37.5">
       <Container>
-        <DividerNavLink label="Contact" url="/contact" />
+        {!isContacts && <DividerNavLink label="Contact" url="/contact" />}
 
-        <div className="mt-10 grid grid-cols-1 gap-10 md:mt-16 md:grid-cols-2 md:gap-17">
+        <div
+          className={cn(
+            "mt-10 grid grid-cols-1 gap-10 md:mt-16 md:grid-cols-2 md:gap-17",
+            isContacts && "mt-0!",
+          )}
+        >
           <div>
             <p
               data-text
