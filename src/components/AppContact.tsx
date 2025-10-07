@@ -66,7 +66,7 @@ const AppContact = () => {
 
   const onSubmit = async (values: ContactFormValues) => {
     try {
-      const response = await fetch("https://formspree.io/f/mnngvgdd", {
+      const response = await fetch(process.env.NEXT_PUBLIC_FORMSPREE_URL!, {
         method: "POST",
         headers: {
           Accept: "application/json",
