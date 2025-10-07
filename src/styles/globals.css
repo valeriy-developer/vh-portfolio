@@ -215,7 +215,7 @@ body {
   }
 
   .h-underline,
-  .h-reverse-underline {
+  .h-underline-r {
     position: relative;
   }
 
@@ -231,17 +231,15 @@ body {
     transition: width 0.3s ease;
   }
 
-  .h-underline::before {
-    width: 100%;
-  }
-  .h-underline:hover::before {
-    width: 0;
-  }
-
+  .h-underline:hover::before,
   .h-underline-r::before {
     width: 0;
   }
-  .h-underline-r:hover::before {
+
+  .h-underline-r:hover::before,
+  .group:hover .h-underline-r::before,
+  .h-underline::before,
+  .group:hover .h-underline::before {
     width: 100%;
   }
 
@@ -250,6 +248,40 @@ body {
     stroke-dashoffset: var(--logo-length);
     animation: logo-draw 8s ease-in-out infinite;
     will-change: stroke-dashoffset;
+  }
+
+  @keyframes line-pulse {
+    0%,
+    100% {
+      width: 2.5rem;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    50% {
+      width: 6.25rem;
+      margin-left: 2.5rem;
+      margin-right: 2.5rem;
+    }
+  }
+
+  @keyframes arrow-left-pulse {
+    0%,
+    100% {
+      transform: translateY(-50%) rotate(0);
+    }
+    50% {
+      transform: translateY(-240%) rotate(45deg);
+    }
+  }
+
+  @keyframes arrow-right-pulse {
+    0%,
+    100% {
+      transform: translateY(-50%) rotate(0);
+    }
+    50% {
+      transform: translateY(240%) rotate(-45deg);
+    }
   }
 
   @keyframes vertical-img-slide {
