@@ -22,9 +22,9 @@ export interface TechnologyItem {
 
 export interface ProjectItem {
   label: string;
-  date: string;
-  description: string;
-  url: string;
+  date?: string;
+  description?: string;
+  url?: string;
   img: AppImage;
 }
 
