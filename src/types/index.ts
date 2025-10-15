@@ -34,7 +34,7 @@ export interface Statistic {
 }
 
 export interface CareerItem {
-  title: string;
+  title?: string;
   organization: string;
   years: string;
   description: string;

@@ -50,25 +50,27 @@ const AboutProfile = () => {
               data-text
               className="text-secondary-50 text-lg md:text-xl lg:text-[1.375rem]"
             >
-              Hi, I&rsquo;m Valeriy — a frontend developer passionate about
-              building applications that are not only functional but also
-              enjoyable to use. For me, frontend development is the perfect mix
-              of logic, creativity, and problem-solving.
+              Hi, I&rsquo;m Valeriy — a frontend developer focused on creating
+              performant and visually refined digital experiences.
             </p>
             <div className="mt-8 space-y-2">
               <p data-text>
-                I specialize in React, Next.js, and modern state management
-                tools, with a strong focus on performance and clean,
-                maintainable code. Over the past years, I&rsquo;ve worked on
-                projects ranging from e-commerce platforms to trading systems,
-                always striving to make the user&rsquo;s experience smooth and
-                intuitive.
+                Over the past few years, I&rsquo;ve built a range of
+                applications — from AI-powered chat platforms and interactive
+                onboarding flows with WebGL to trading dashboards and custom
+                e-commerce systems.
               </p>
               <p data-text>
-                I love exploring new technologies and improving workflows.
-                Outside of coding, I find inspiration in continuous learning and
-                creative hobbies, which often bring fresh ideas into my
-                development work.
+                My expertise lies in React, Next.js, and modern state management
+                tools like Zustand and Redux. I pay close attention to
+                architecture, performance, and accessibility — ensuring every
+                product is both elegant and reliable.
+              </p>
+              <p data-text>
+                I&rsquo;m constantly learning and exploring new technologies,
+                aiming to make development workflows cleaner and more efficient.
+                Outside of coding, I enjoy creative hobbies that often bring
+                fresh perspectives to my work.
               </p>
             </div>
           </div>

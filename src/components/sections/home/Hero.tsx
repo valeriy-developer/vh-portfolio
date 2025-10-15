@@ -175,7 +175,8 @@ const HomeHero = () => {
           className="easing-text mt-8 max-w-[24rem] leading-[1.8em] md:max-w-[25rem] md:text-lg lg:max-w-[33rem] lg:text-[1.375rem]"
         >
           I&rsquo;m Valeriy Hnybydenko — a frontend developer with 3+ years of
-          experience building fast and maintainable apps with modern frameworks.
+          experience, passionate about clean architecture and seamless
+          performance.
         </p>
         <div data-indicator>
           <ScrollIndicator />
