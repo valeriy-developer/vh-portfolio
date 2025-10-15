@@ -32,23 +32,29 @@ const Footer = () => {
         },
       });
 
-      tl.from(splitTitle.chars, {
-        y: 40,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.6,
-        ease: "power2.inOut",
-      });
-      tl.from(
-        "[data-line]",
-        {
-          scaleX: 0,
-          transformOrigin: "left",
-          duration: 0.8,
+      if (splitTitle?.chars?.length) {
+        tl.from(splitTitle.chars, {
+          y: 40,
+          opacity: 0,
+          stagger: 0.1,
+          duration: 0.6,
           ease: "power2.inOut",
-        },
-        "<20%",
-      );
+        });
+      }
+
+      const hasLine = footerRef.current?.querySelector("[data-line]");
+      if (hasLine) {
+        tl.from(
+          "[data-line]",
+          {
+            scaleX: 0,
+            transformOrigin: "left",
+            duration: 0.8,
+            ease: "power2.inOut",
+          },
+          "<20%",
+        );
+      }
       tl.from(
         splitText.lines,
         {

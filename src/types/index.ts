@@ -22,9 +22,9 @@ export interface TechnologyItem {
 
 export interface ProjectItem {
   label: string;
-  date: string;
-  description: string;
-  url: string;
+  date?: string;
+  description?: string;
+  url?: string;
   img: AppImage;
 }
 
@@ -34,7 +34,7 @@ export interface Statistic {
 }
 
 export interface CareerItem {
-  title: string;
+  title?: string;
   organization: string;
   years: string;
   description: string;

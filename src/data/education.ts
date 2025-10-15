@@ -4,29 +4,22 @@ export const education: CareerItem[] = [
   {
     title: "Master degree in Management",
     organization: "State University of Economics and Technologies",
-    years: "Sep 2015 - Dec 2020",
+    years: "Sep 2019 - Dec 2020",
     description:
-      "Developed strong management expertise with a focus on leadership, teamwork, problem-solving, and effective communication skills.",
+      "Gained advanced analytical, organizational, and leadership skills. Learned to coordinate complex tasks, work effectively in teams, and make data-driven decisions to achieve project goals.",
   },
   {
-    title: "Frontend Developer",
-    organization: "Emotion Agency",
-    years: "Sep 2021 – Present",
+    title: "Bachelor’s Degree in Management",
+    organization: "State University of Economics and Technologies",
+    years: "Sep 2015 - Jun 2019",
     description:
-      "Developed reusable UI component libraries, optimized Shopify checkout flows, and contributed to CMS development with Storyblok. Improved user experience through performance enhancements, animations, and interactive features.",
+      "Developed strong communication, planning, and problem-solving abilities. Learned to manage time efficiently, analyze processes, and maintain high attention to detail in dynamic environments.",
   },
   {
-    title: "Frontend Developer",
-    organization: "Emotion Agency",
-    years: "Sep 2021 – Present",
+    title: "Bachelor’s Degree in Law",
+    organization: "State University of Economics and Technologies",
+    years: "Sep 2015 - Jun 2019",
     description:
-      "Developed reusable UI component libraries, optimized Shopify checkout flows, and contributed to CMS development with Storyblok. Improved user experience through performance enhancements, animations, and interactive features.",
-  },
-  {
-    title: "Frontend Developer",
-    organization: "Emotion Agency",
-    years: "Sep 2021 – Present",
-    description:
-      "Developed reusable UI component libraries, optimized Shopify checkout flows, and contributed to CMS development with Storyblok. Improved user experience through performance enhancements, animations, and interactive features.",
+      "Strengthened critical thinking, logical reasoning, and precision in working with information. Acquired skills in documentation, research, and structured analysis essential for accuracy and consistency.",
   },
 ];

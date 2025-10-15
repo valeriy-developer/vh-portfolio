@@ -75,18 +75,19 @@ const HomeAbout = () => {
             data-text
             className="text-secondary-50 flex-1 text-lg md:text-xl lg:text-[1.375rem]"
           >
-            My passion lies in building performant and maintainable frontend
-            architectures, applying modern frameworks and state management
-            solutions to deliver scalable, reliable, and visually refined user
-            interfaces.
+            I build digital interfaces that combine precision, motion, and
+            clarity. My goal is to make complex interactions feel effortless and
+            intuitive for users. Every project starts with understanding the
+            idea — and ends with a polished, meaningful experience.
           </p>
           <div className="flex-1 text-sm md:text-base lg:text-lg">
             <p data-text>
-              I have completed multiple advanced courses in JavaScript and React
-              by Jonas Schmedtmann, as well as other development programs. This
-              continuous learning path has strengthened my expertise in
-              contemporary frontend practices, enabling me to craft solutions
-              that are both technically solid and user-centric.
+              I work with React, Next.js, and TypeScript, focusing on
+              performance, maintainability, and design consistency. My
+              experience spans from AI chat systems and dashboards to Web3 and
+              e-commerce platforms. I care about clean architecture,
+              accessibility, and smooth animation — the small details that make
+              products truly stand out.
             </p>
             <ul className="mt-8 flex flex-col items-center gap-5 max-md:mx-auto max-md:max-w-107.5">
               {technologies.slice(0, 3).map((technology, idx) => (

@@ -2,15 +2,15 @@ import { Statistic } from "@/types";
 
 export const experienceStatistic: Statistic[] = [
   {
-    count: 380,
-    info: "Projects <br/>completed",
+    count: 18,
+    info: "Projects <br/>delivered",
   },
   {
-    count: 420,
-    info: "Satisfied <br/>clients",
+    count: 100,
+    info: "Performance <br/>issues resolved",
   },
   {
-    count: 50,
-    info: "Positive <br/>reviews",
+    count: 7,
+    info: "Interactive 3D <br/>visuals with WebGL",
   },
 ];
